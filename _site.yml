@@ -11,3 +11,4 @@ output:
   html_document:
     theme: cerulean
     highlight: textmate
+    code_folding: hide

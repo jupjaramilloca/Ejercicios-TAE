@@ -20,6 +20,7 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
@@ -245,6 +246,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -287,17 +291,23 @@ $(document).ready(function () {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 
 </div>
 
 
-<div id="section" class="section level1 tabset">
-<h1></h1>
-<div id="punto-10" class="section level2">
-<h2>Punto 10</h2>
-<p><strong>Estas pregunta deben respoderse utilizando el conjunto de datos <em>Weekly</em>, que es parte del paquete <em>ISLR</em>. Estos datos son similares en naturaleza a datos de <em>Smarket</em> de este capítulo, excepto que contiene 1,089 Regresos semanales durante 21 años, desde principios de 1990 hasta el final del 2010.</strong></p>
+<div id="tabset-.tabset-fade-.tabset-pills" class="section level1">
+<h1>{.tabset .tabset-fade .tabset-pills}}</h1>
+<p>Desarrollo de los ejercicios del capitulo IV del libro <em>“Una introducción al aprendizaje estadistico con aplicaciones en R”</em> ## Punto 10 <strong>Estas pregunta deben respoderse utilizando el conjunto de datos <em>Weekly</em>, que es parte del paquete <em>ISLR</em>. Estos datos son similares en naturaleza a datos de <em>Smarket</em> de este capítulo, excepto que contiene 1,089 Regresos semanales durante 21 años, desde principios de 1990 hasta el final del 2010.</strong></p>
 <p><strong>(a) Produzaca algunos resumenes numéricos y gráficos de los datos <em>Weekly</em>.¿ parace que hay patrones?.</strong></p>
 <blockquote>
 <p>Resumen de variables:</p>
@@ -582,7 +592,6 @@ prediction_knn2 &lt;- knn(train = train.x,test = test.x,cl = train.Direction,k =
 </tbody>
 </table>
 <p>De esta tabla se puede concluir que el modelo de regresión logística y LDA tienen el mejor rendimiento en tasas de error de prueba.</p>
-</div>
 <div id="punto-11" class="section level2">
 <h2>punto 11</h2>
 <p><strong>En este problema, desarrollará un modelo para predecir si un automóvil determinado obtiene un consumo de combustible alto o bajo en función del conjunto de datos automático.</strong></p>
@@ -609,10 +618,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <th align="right">mpg01.1</th>
 <th align="right">mpg01.2</th>
 <th align="right">mpg01.3</th>
-<th align="right">mpg01.4</th>
-<th align="right">mpg01.5</th>
-<th align="right">mpg01.6</th>
-<th align="right">mpg01.7</th>
 </tr>
 </thead>
 <tbody>
@@ -626,10 +631,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">70</td>
 <td align="right">1</td>
 <td align="left">chevrolet chevelle malibu</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -649,10 +650,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 </tr>
 <tr class="odd">
 <td align="right">18</td>
@@ -664,10 +661,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">70</td>
 <td align="right">1</td>
 <td align="left">plymouth satellite</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -687,10 +680,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 </tr>
 <tr class="odd">
 <td align="right">17</td>
@@ -706,10 +695,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="right">15</td>
@@ -721,10 +706,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">70</td>
 <td align="right">1</td>
 <td align="left">ford galaxie 500</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -750,10 +731,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 ## mpg01.1       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
 ## mpg01.2       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
 ## mpg01.3       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.4       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.5       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.6       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.7       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
 ##              acceleration       year     origin      mpg01    mpg01.1
 ## mpg             0.4233285  0.5805410  0.5652088  0.8369392  0.8369392
 ## cylinders      -0.5046834 -0.3456474 -0.5689316 -0.7591939 -0.7591939
@@ -767,44 +744,19 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 ## mpg01.1         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
 ## mpg01.2         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
 ## mpg01.3         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.4         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.5         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.6         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.7         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-##                 mpg01.2    mpg01.3    mpg01.4    mpg01.5    mpg01.6
-## mpg           0.8369392  0.8369392  0.8369392  0.8369392  0.8369392
-## cylinders    -0.7591939 -0.7591939 -0.7591939 -0.7591939 -0.7591939
-## displacement -0.7534766 -0.7534766 -0.7534766 -0.7534766 -0.7534766
-## horsepower   -0.6670526 -0.6670526 -0.6670526 -0.6670526 -0.6670526
-## weight       -0.7577566 -0.7577566 -0.7577566 -0.7577566 -0.7577566
-## acceleration  0.3468215  0.3468215  0.3468215  0.3468215  0.3468215
-## year          0.4299042  0.4299042  0.4299042  0.4299042  0.4299042
-## origin        0.5136984  0.5136984  0.5136984  0.5136984  0.5136984
-## mpg01         1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.1       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.2       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.3       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.4       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.5       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.6       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.7       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-##                 mpg01.7
-## mpg           0.8369392
-## cylinders    -0.7591939
-## displacement -0.7534766
-## horsepower   -0.6670526
-## weight       -0.7577566
-## acceleration  0.3468215
-## year          0.4299042
-## origin        0.5136984
-## mpg01         1.0000000
-## mpg01.1       1.0000000
-## mpg01.2       1.0000000
-## mpg01.3       1.0000000
-## mpg01.4       1.0000000
-## mpg01.5       1.0000000
-## mpg01.6       1.0000000
-## mpg01.7       1.0000000</code></pre>
+##                 mpg01.2    mpg01.3
+## mpg           0.8369392  0.8369392
+## cylinders    -0.7591939 -0.7591939
+## displacement -0.7534766 -0.7534766
+## horsepower   -0.6670526 -0.6670526
+## weight       -0.7577566 -0.7577566
+## acceleration  0.3468215  0.3468215
+## year          0.4299042  0.4299042
+## origin        0.5136984  0.5136984
+## mpg01         1.0000000  1.0000000
+## mpg01.1       1.0000000  1.0000000
+## mpg01.2       1.0000000  1.0000000
+## mpg01.3       1.0000000  1.0000000</code></pre>
 <blockquote>
 <p>Grafico de dispersion</p>
 </blockquote>
@@ -817,17 +769,15 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 3):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, mpg01.5, mpg01.6, name,
-##     origin, weight, year</code></pre>
+##     mpg01.1, mpg01.2, name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 4):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, mpg01.5, name, origin,
-##     weight, year</code></pre>
+##     mpg01.1, name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 5):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, name, origin, weight, year</code></pre>
+##     mpg01.1, mpg01.2, mpg01.3, name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 6):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
@@ -835,12 +785,28 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 7):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, name, origin, weight, year</code></pre>
+##     mpg01.1, mpg01.2, mpg01.3, name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 8):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
+##     mpg01.1, mpg01.2, mpg01.3, name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 9):
+## 
+##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
+##     mpg01.1, mpg01.2, mpg01.3, name, origin, weight, year</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 10):
+## 
+##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
+##     mpg01.1, mpg01.2, mpg01.3, name, origin, weight, year</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 11):
+## 
+##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
+##     mpg01.1, mpg01.2, name, origin, weight, year</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 12):
+## 
+##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
+##     mpg01.1, name, origin, weight, year</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 13):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
 ##     name, origin, weight, year</code></pre>
@@ -915,6 +881,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
