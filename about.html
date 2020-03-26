@@ -343,7 +343,7 @@ summary(Weekly)</code></pre>
 <p>Matriz de gráfico de dispersión:</p>
 </blockquote>
 <pre class="r"><code>pairs(Weekly)</code></pre>
-<p><img src="about_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="about_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>En la primera matriz muestra un resumen de las variables a trabajar, observamos que todas estan a una misma escala, ecepto la varible dirección que cuenta con dos niveles (Alto y bajo). En la segunda matriz las varibles lag1,lag2,lag3,lag4,lag5 y volumen, son variables que entre ellas aparentemente las observaciones se concentrar en el centro; podemos notar que las varible año y variable volume tiene un comportamiento de un polinomio de grado dos acsendente mientras pasa el tiempo.</p>
 <blockquote>
 <p>Matriz de correlaciones</p>
@@ -601,6 +601,7 @@ prediction_knn2 &lt;- knn(train = train.x,test = test.x,cl = train.Direction,k =
 <p><strong>En este problema, desarrollará un modelo para predecir si un automóvil determinado obtiene un consumo de combustible alto o bajo en función del conjunto de datos automático.</strong></p>
 <p><strong>(a) Cree una variable binaria, mpg01, que contenga un 1 si mpg contiene un valor por encima de su mediana, y un 0 si mpg contiene un valor por debajo de su mediana. Puede calcular la mediana utilizando la función median(). Tenga en cuenta que puede resultarle útil utilizar la función data.frame() para crear un único conjunto de datos que contenga tanto mpg01 como las otras variables automáticas.</strong></p>
 <pre class="r"><code>library(ISLR)
+data(Auto)
 n &lt;- length(Auto$mpg)
 mpg01 &lt;- ifelse( Auto$mpg &gt; median(Auto$mpg),1,0)
 Auto &lt;- data.frame(Auto,mpg01)</code></pre>
@@ -619,13 +620,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <th align="right">origin</th>
 <th align="left">name</th>
 <th align="right">mpg01</th>
-<th align="right">mpg01.1</th>
-<th align="right">mpg01.2</th>
-<th align="right">mpg01.3</th>
-<th align="right">mpg01.4</th>
-<th align="right">mpg01.5</th>
-<th align="right">mpg01.6</th>
-<th align="right">mpg01.7</th>
 </tr>
 </thead>
 <tbody>
@@ -640,13 +634,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">1</td>
 <td align="left">chevrolet chevelle malibu</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="right">15</td>
@@ -658,13 +645,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">70</td>
 <td align="right">1</td>
 <td align="left">buick skylark 320</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
@@ -678,13 +658,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">1</td>
 <td align="left">plymouth satellite</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="right">16</td>
@@ -696,13 +669,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">70</td>
 <td align="right">1</td>
 <td align="left">amc rebel sst</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
@@ -716,13 +682,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">1</td>
 <td align="left">ford torino</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="right">15</td>
@@ -734,13 +693,6 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <td align="right">70</td>
 <td align="right">1</td>
 <td align="left">ford galaxie 500</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 <td align="right">0</td>
 </tr>
 </tbody>
@@ -760,69 +712,21 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 ## year          0.5805410 -0.3456474   -0.3698552 -0.4163615 -0.3091199
 ## origin        0.5652088 -0.5689316   -0.6145351 -0.4551715 -0.5850054
 ## mpg01         0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.1       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.2       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.3       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.4       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.5       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.6       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.7       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-##              acceleration       year     origin      mpg01    mpg01.1
-## mpg             0.4233285  0.5805410  0.5652088  0.8369392  0.8369392
-## cylinders      -0.5046834 -0.3456474 -0.5689316 -0.7591939 -0.7591939
-## displacement   -0.5438005 -0.3698552 -0.6145351 -0.7534766 -0.7534766
-## horsepower     -0.6891955 -0.4163615 -0.4551715 -0.6670526 -0.6670526
-## weight         -0.4168392 -0.3091199 -0.5850054 -0.7577566 -0.7577566
-## acceleration    1.0000000  0.2903161  0.2127458  0.3468215  0.3468215
-## year            0.2903161  1.0000000  0.1815277  0.4299042  0.4299042
-## origin          0.2127458  0.1815277  1.0000000  0.5136984  0.5136984
-## mpg01           0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.1         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.2         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.3         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.4         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.5         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.6         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.7         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-##                 mpg01.2    mpg01.3    mpg01.4    mpg01.5    mpg01.6
-## mpg           0.8369392  0.8369392  0.8369392  0.8369392  0.8369392
-## cylinders    -0.7591939 -0.7591939 -0.7591939 -0.7591939 -0.7591939
-## displacement -0.7534766 -0.7534766 -0.7534766 -0.7534766 -0.7534766
-## horsepower   -0.6670526 -0.6670526 -0.6670526 -0.6670526 -0.6670526
-## weight       -0.7577566 -0.7577566 -0.7577566 -0.7577566 -0.7577566
-## acceleration  0.3468215  0.3468215  0.3468215  0.3468215  0.3468215
-## year          0.4299042  0.4299042  0.4299042  0.4299042  0.4299042
-## origin        0.5136984  0.5136984  0.5136984  0.5136984  0.5136984
-## mpg01         1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.1       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.2       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.3       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.4       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.5       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.6       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-## mpg01.7       1.0000000  1.0000000  1.0000000  1.0000000  1.0000000
-##                 mpg01.7
-## mpg           0.8369392
-## cylinders    -0.7591939
-## displacement -0.7534766
-## horsepower   -0.6670526
-## weight       -0.7577566
-## acceleration  0.3468215
-## year          0.4299042
-## origin        0.5136984
-## mpg01         1.0000000
-## mpg01.1       1.0000000
-## mpg01.2       1.0000000
-## mpg01.3       1.0000000
-## mpg01.4       1.0000000
-## mpg01.5       1.0000000
-## mpg01.6       1.0000000
-## mpg01.7       1.0000000</code></pre>
+##              acceleration       year     origin      mpg01
+## mpg             0.4233285  0.5805410  0.5652088  0.8369392
+## cylinders      -0.5046834 -0.3456474 -0.5689316 -0.7591939
+## displacement   -0.5438005 -0.3698552 -0.6145351 -0.7534766
+## horsepower     -0.6891955 -0.4163615 -0.4551715 -0.6670526
+## weight         -0.4168392 -0.3091199 -0.5850054 -0.7577566
+## acceleration    1.0000000  0.2903161  0.2127458  0.3468215
+## year            0.2903161  1.0000000  0.1815277  0.4299042
+## origin          0.2127458  0.1815277  1.0000000  0.5136984
+## mpg01           0.3468215  0.4299042  0.5136984  1.0000000</code></pre>
 <blockquote>
 <p>Grafico de dispersion</p>
 </blockquote>
 <pre class="r"><code>pairs(Auto)</code></pre>
-<p><img src="about_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="about_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <pre class="r"><code>attach(Auto)</code></pre>
 <pre><code>## The following object is masked _by_ .GlobalEnv:
 ## 
@@ -830,66 +734,68 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 3):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, mpg01.5, mpg01.6, name,
-##     origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 4):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, mpg01.5, name, origin,
-##     weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 5):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, name, origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 6):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, name, origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 7):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, name, origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 8):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 9):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, mpg01.5, mpg01.6, mpg01.7,
 ##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 10):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, mpg01.5, mpg01.6, mpg01.7,
 ##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 11):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, mpg01.5, mpg01.6, name,
-##     origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 12):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, mpg01.5, name, origin,
-##     weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 13):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, mpg01.4, name, origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 14):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, mpg01.3, name, origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 15):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, mpg01.2, name, origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 16):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
+##     name, origin, weight, year</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 17):
+## 
+##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
+##     name, origin, weight, year</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 18):
+## 
+##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
+##     name, origin, weight, year</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 19):
 ## 
 ##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
 ##     name, origin, weight, year</code></pre>
@@ -900,7 +806,7 @@ boxplot(horsepower ~mpg01,data = Auto,main=&quot;Caballos de fuerza vs mpg01&quo
 boxplot(weight ~mpg01,data = Auto,main=&quot;Peso del vehiculo vs mpg01&quot;)
 boxplot(acceleration ~mpg01,data = Auto,main=&quot;Aceleración vs mpg01&quot;)
 boxplot(year ~mpg01,data = Auto,main=&quot;Modelo vs mpg01&quot;)</code></pre>
-<p><img src="about_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="about_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p><strong>(c) Divida los datos en un conjunto de entrenamiento y un conjunto de prueba.</strong></p>
 <p><strong>(d) Realice LDA en los datos de entrenamiento para predecir mpg01 usando las variables que parecían más asociadas con mpg01 en (b). ¿Cuál es el error de prueba del modelo obtenido?</strong></p>
 <p><strong>(e) Realice QDA en los datos de entrenamiento para predecir mpg01 usando las variables que parecían más asociadas con mpg01 en (b). ¿Cuál es el error de prueba del modelo obtenido?</strong></p>
