@@ -1,5 +1,9 @@
 #{.tabset .tabset-fade .tabset-pills}
+
+
 Desarrollo de los ejercicios del capitulo IV del libro _"Una introducción al aprendizaje estadistico con aplicaciones en R"_
+
+
 ## Punto 10
 **Estas pregunta deben respoderse utilizando el conjunto de datos _Weekly_, que es parte del paquete _ISLR_. Estos datos son similares en naturaleza a datos de _Smarket_ de este capítulo, excepto que contiene 1,089 Regresos semanales durante 21 años, desde principios de 1990 hasta el final del 2010.**
 
