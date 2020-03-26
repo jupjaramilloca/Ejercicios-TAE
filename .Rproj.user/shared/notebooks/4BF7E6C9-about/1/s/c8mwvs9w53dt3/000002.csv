@@ -1,0 +1,1 @@
+"0","knitr::kable(head(Auto),caption = ""Cabeza de base de datos Auto con variable mpg01"")"
