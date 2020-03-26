@@ -1,0 +1,1 @@
+"0","boxplot(weight ~mpg01,data = Auto,main=""Peso del vehiculo vs mpg01"")"

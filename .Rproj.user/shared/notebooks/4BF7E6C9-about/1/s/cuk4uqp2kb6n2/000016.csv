@@ -1,0 +1,1 @@
+"0","boxplot(acceleration ~mpg01,data = Auto,main=""Aceleración vs mpg01"")"

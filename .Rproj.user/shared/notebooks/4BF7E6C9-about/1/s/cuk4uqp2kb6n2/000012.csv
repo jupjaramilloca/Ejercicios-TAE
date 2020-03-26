@@ -1,0 +1,1 @@
+"0","boxplot(horsepower ~mpg01,data = Auto,main=""Caballos de fuerza vs mpg01"")"

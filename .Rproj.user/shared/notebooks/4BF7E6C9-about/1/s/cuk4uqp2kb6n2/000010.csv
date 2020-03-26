@@ -1,0 +1,1 @@
+"0","boxplot(displacement ~mpg01,data = Auto,main=""Desplazamiento vs mpg01"")"

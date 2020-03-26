@@ -1,0 +1,1 @@
+"0","boxplot(year ~mpg01,data = Auto,main=""Modelo vs mpg01"")"
