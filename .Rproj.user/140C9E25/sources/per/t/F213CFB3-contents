@@ -238,8 +238,6 @@ De esta tabla se puede concluir que el modelo de regresión logística y LDA tie
 
 ```{r}
 library(ISLR)
-data(Auto)
-
 n <- length(Auto$mpg)
 mpg01 <- ifelse( Auto$mpg > median(Auto$mpg),1,0)
 Auto <- data.frame(Auto,mpg01)
