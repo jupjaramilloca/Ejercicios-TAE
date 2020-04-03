@@ -276,10 +276,16 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">Ensayo</a>
 </li>
 <li>
   <a href="about.html">Capitulo IV</a>
+</li>
+<li>
+  <a href="VIII.html">Capitulo VIII</a>
+</li>
+<li>
+  <a href="IX.html">Capitulo IX</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -319,27 +325,34 @@ $(document).ready(function () {
 <pre class="r"><code>library(ISLR)
 data(&quot;Weekly&quot;)
 summary(Weekly)</code></pre>
-<pre><code>##       Year           Lag1               Lag2               Lag3         
-##  Min.   :1990   Min.   :-18.1950   Min.   :-18.1950   Min.   :-18.1950  
-##  1st Qu.:1995   1st Qu.: -1.1540   1st Qu.: -1.1540   1st Qu.: -1.1580  
-##  Median :2000   Median :  0.2410   Median :  0.2410   Median :  0.2410  
-##  Mean   :2000   Mean   :  0.1506   Mean   :  0.1511   Mean   :  0.1472  
-##  3rd Qu.:2005   3rd Qu.:  1.4050   3rd Qu.:  1.4090   3rd Qu.:  1.4090  
-##  Max.   :2010   Max.   : 12.0260   Max.   : 12.0260   Max.   : 12.0260  
-##       Lag4               Lag5              Volume       
-##  Min.   :-18.1950   Min.   :-18.1950   Min.   :0.08747  
-##  1st Qu.: -1.1580   1st Qu.: -1.1660   1st Qu.:0.33202  
-##  Median :  0.2380   Median :  0.2340   Median :1.00268  
-##  Mean   :  0.1458   Mean   :  0.1399   Mean   :1.57462  
-##  3rd Qu.:  1.4090   3rd Qu.:  1.4050   3rd Qu.:2.05373  
-##  Max.   : 12.0260   Max.   : 12.0260   Max.   :9.32821  
-##      Today          Direction 
-##  Min.   :-18.1950   Down:484  
-##  1st Qu.: -1.1540   Up  :605  
-##  Median :  0.2410             
-##  Mean   :  0.1499             
-##  3rd Qu.:  1.4050             
-##  Max.   : 12.0260</code></pre>
+<pre><code>##       Year           Lag1         
+##  Min.   :1990   Min.   :-18.1950  
+##  1st Qu.:1995   1st Qu.: -1.1540  
+##  Median :2000   Median :  0.2410  
+##  Mean   :2000   Mean   :  0.1506  
+##  3rd Qu.:2005   3rd Qu.:  1.4050  
+##  Max.   :2010   Max.   : 12.0260  
+##       Lag2               Lag3         
+##  Min.   :-18.1950   Min.   :-18.1950  
+##  1st Qu.: -1.1540   1st Qu.: -1.1580  
+##  Median :  0.2410   Median :  0.2410  
+##  Mean   :  0.1511   Mean   :  0.1472  
+##  3rd Qu.:  1.4090   3rd Qu.:  1.4090  
+##  Max.   : 12.0260   Max.   : 12.0260  
+##       Lag4               Lag5         
+##  Min.   :-18.1950   Min.   :-18.1950  
+##  1st Qu.: -1.1580   1st Qu.: -1.1660  
+##  Median :  0.2380   Median :  0.2340  
+##  Mean   :  0.1458   Mean   :  0.1399  
+##  3rd Qu.:  1.4090   3rd Qu.:  1.4050  
+##  Max.   : 12.0260   Max.   : 12.0260  
+##      Volume            Today          Direction 
+##  Min.   :0.08747   Min.   :-18.1950   Down:484  
+##  1st Qu.:0.33202   1st Qu.: -1.1540   Up  :605  
+##  Median :1.00268   Median :  0.2410             
+##  Mean   :1.57462   Mean   :  0.1499             
+##  3rd Qu.:2.05373   3rd Qu.:  1.4050             
+##  Max.   :9.32821   Max.   : 12.0260</code></pre>
 <blockquote>
 <p>Matriz de gráfico de dispersión:</p>
 </blockquote>
@@ -350,24 +363,33 @@ summary(Weekly)</code></pre>
 <p>Matriz de correlaciones</p>
 </blockquote>
 <pre class="r"><code>cor(Weekly[,-9])</code></pre>
-<pre><code>##               Year         Lag1        Lag2        Lag3         Lag4
-## Year    1.00000000 -0.032289274 -0.03339001 -0.03000649 -0.031127923
-## Lag1   -0.03228927  1.000000000 -0.07485305  0.05863568 -0.071273876
-## Lag2   -0.03339001 -0.074853051  1.00000000 -0.07572091  0.058381535
-## Lag3   -0.03000649  0.058635682 -0.07572091  1.00000000 -0.075395865
-## Lag4   -0.03112792 -0.071273876  0.05838153 -0.07539587  1.000000000
-## Lag5   -0.03051910 -0.008183096 -0.07249948  0.06065717 -0.075675027
-## Volume  0.84194162 -0.064951313 -0.08551314 -0.06928771 -0.061074617
-## Today  -0.03245989 -0.075031842  0.05916672 -0.07124364 -0.007825873
-##                Lag5      Volume        Today
-## Year   -0.030519101  0.84194162 -0.032459894
-## Lag1   -0.008183096 -0.06495131 -0.075031842
-## Lag2   -0.072499482 -0.08551314  0.059166717
-## Lag3    0.060657175 -0.06928771 -0.071243639
-## Lag4   -0.075675027 -0.06107462 -0.007825873
-## Lag5    1.000000000 -0.05851741  0.011012698
-## Volume -0.058517414  1.00000000 -0.033077783
-## Today   0.011012698 -0.03307778  1.000000000</code></pre>
+<pre><code>##               Year         Lag1        Lag2
+## Year    1.00000000 -0.032289274 -0.03339001
+## Lag1   -0.03228927  1.000000000 -0.07485305
+## Lag2   -0.03339001 -0.074853051  1.00000000
+## Lag3   -0.03000649  0.058635682 -0.07572091
+## Lag4   -0.03112792 -0.071273876  0.05838153
+## Lag5   -0.03051910 -0.008183096 -0.07249948
+## Volume  0.84194162 -0.064951313 -0.08551314
+## Today  -0.03245989 -0.075031842  0.05916672
+##               Lag3         Lag4         Lag5
+## Year   -0.03000649 -0.031127923 -0.030519101
+## Lag1    0.05863568 -0.071273876 -0.008183096
+## Lag2   -0.07572091  0.058381535 -0.072499482
+## Lag3    1.00000000 -0.075395865  0.060657175
+## Lag4   -0.07539587  1.000000000 -0.075675027
+## Lag5    0.06065717 -0.075675027  1.000000000
+## Volume -0.06928771 -0.061074617 -0.058517414
+## Today  -0.07124364 -0.007825873  0.011012698
+##             Volume        Today
+## Year    0.84194162 -0.032459894
+## Lag1   -0.06495131 -0.075031842
+## Lag2   -0.08551314  0.059166717
+## Lag3   -0.06928771 -0.071243639
+## Lag4   -0.06107462 -0.007825873
+## Lag5   -0.05851741  0.011012698
+## Volume  1.00000000 -0.033077783
+## Today  -0.03307778  1.000000000</code></pre>
 <p><strong>(b) Utilice el conjunto de datos completo para realizar una regresion logística con <em>Direction</em> como la respuesta y la cinco varibles de retraso mas <em>Volume</em> como predictoras. Use la funcion summary para imprimir los resultados. ¿algunos de los predictores parece ser estadisticamente significativos? si es asi ¿cuales son estas variables? </strong></p>
 <blockquote>
 <p>Resumen Regresión logística</p>
@@ -384,16 +406,25 @@ summary(mod1)</code></pre>
 ## -1.6949  -1.2565   0.9913   1.0849   1.4579  
 ## 
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)   
-## (Intercept)  0.26686    0.08593   3.106   0.0019 **
-## Lag1        -0.04127    0.02641  -1.563   0.1181   
-## Lag2         0.05844    0.02686   2.175   0.0296 * 
-## Lag3        -0.01606    0.02666  -0.602   0.5469   
-## Lag4        -0.02779    0.02646  -1.050   0.2937   
-## Lag5        -0.01447    0.02638  -0.549   0.5833   
-## Volume      -0.02274    0.03690  -0.616   0.5377   
+##             Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)  0.26686    0.08593   3.106   0.0019
+## Lag1        -0.04127    0.02641  -1.563   0.1181
+## Lag2         0.05844    0.02686   2.175   0.0296
+## Lag3        -0.01606    0.02666  -0.602   0.5469
+## Lag4        -0.02779    0.02646  -1.050   0.2937
+## Lag5        -0.01447    0.02638  -0.549   0.5833
+## Volume      -0.02274    0.03690  -0.616   0.5377
+##               
+## (Intercept) **
+## Lag1          
+## Lag2        * 
+## Lag3          
+## Lag4          
+## Lag5          
+## Volume        
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -433,11 +464,15 @@ summary(mod2)</code></pre>
 ## -1.536  -1.264   1.021   1.091   1.368  
 ## 
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)   
-## (Intercept)  0.20326    0.06428   3.162  0.00157 **
-## Lag2         0.05810    0.02870   2.024  0.04298 * 
+##             Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)  0.20326    0.06428   3.162  0.00157
+## Lag2         0.05810    0.02870   2.024  0.04298
+##               
+## (Intercept) **
+## Lag2        * 
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -711,28 +746,50 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <p>Correlaciones entre variables:</p>
 </blockquote>
 <pre class="r"><code>cor(Auto[,-9])</code></pre>
-<pre><code>##                     mpg  cylinders displacement horsepower     weight
-## mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268 -0.8322442
-## cylinders    -0.7776175  1.0000000    0.9508233  0.8429834  0.8975273
-## displacement -0.8051269  0.9508233    1.0000000  0.8972570  0.9329944
-## horsepower   -0.7784268  0.8429834    0.8972570  1.0000000  0.8645377
-## weight       -0.8322442  0.8975273    0.9329944  0.8645377  1.0000000
-## acceleration  0.4233285 -0.5046834   -0.5438005 -0.6891955 -0.4168392
-## year          0.5805410 -0.3456474   -0.3698552 -0.4163615 -0.3091199
-## origin        0.5652088 -0.5689316   -0.6145351 -0.4551715 -0.5850054
-## mpg01         0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-## mpg01.1       0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-##              acceleration       year     origin      mpg01    mpg01.1
-## mpg             0.4233285  0.5805410  0.5652088  0.8369392  0.8369392
-## cylinders      -0.5046834 -0.3456474 -0.5689316 -0.7591939 -0.7591939
-## displacement   -0.5438005 -0.3698552 -0.6145351 -0.7534766 -0.7534766
-## horsepower     -0.6891955 -0.4163615 -0.4551715 -0.6670526 -0.6670526
-## weight         -0.4168392 -0.3091199 -0.5850054 -0.7577566 -0.7577566
-## acceleration    1.0000000  0.2903161  0.2127458  0.3468215  0.3468215
-## year            0.2903161  1.0000000  0.1815277  0.4299042  0.4299042
-## origin          0.2127458  0.1815277  1.0000000  0.5136984  0.5136984
-## mpg01           0.3468215  0.4299042  0.5136984  1.0000000  1.0000000
-## mpg01.1         0.3468215  0.4299042  0.5136984  1.0000000  1.0000000</code></pre>
+<pre><code>##                     mpg  cylinders displacement
+## mpg           1.0000000 -0.7776175   -0.8051269
+## cylinders    -0.7776175  1.0000000    0.9508233
+## displacement -0.8051269  0.9508233    1.0000000
+## horsepower   -0.7784268  0.8429834    0.8972570
+## weight       -0.8322442  0.8975273    0.9329944
+## acceleration  0.4233285 -0.5046834   -0.5438005
+## year          0.5805410 -0.3456474   -0.3698552
+## origin        0.5652088 -0.5689316   -0.6145351
+## mpg01         0.8369392 -0.7591939   -0.7534766
+## mpg01.1       0.8369392 -0.7591939   -0.7534766
+##              horsepower     weight acceleration
+## mpg          -0.7784268 -0.8322442    0.4233285
+## cylinders     0.8429834  0.8975273   -0.5046834
+## displacement  0.8972570  0.9329944   -0.5438005
+## horsepower    1.0000000  0.8645377   -0.6891955
+## weight        0.8645377  1.0000000   -0.4168392
+## acceleration -0.6891955 -0.4168392    1.0000000
+## year         -0.4163615 -0.3091199    0.2903161
+## origin       -0.4551715 -0.5850054    0.2127458
+## mpg01        -0.6670526 -0.7577566    0.3468215
+## mpg01.1      -0.6670526 -0.7577566    0.3468215
+##                    year     origin      mpg01
+## mpg           0.5805410  0.5652088  0.8369392
+## cylinders    -0.3456474 -0.5689316 -0.7591939
+## displacement -0.3698552 -0.6145351 -0.7534766
+## horsepower   -0.4163615 -0.4551715 -0.6670526
+## weight       -0.3091199 -0.5850054 -0.7577566
+## acceleration  0.2903161  0.2127458  0.3468215
+## year          1.0000000  0.1815277  0.4299042
+## origin        0.1815277  1.0000000  0.5136984
+## mpg01         0.4299042  0.5136984  1.0000000
+## mpg01.1       0.4299042  0.5136984  1.0000000
+##                 mpg01.1
+## mpg           0.8369392
+## cylinders    -0.7591939
+## displacement -0.7534766
+## horsepower   -0.6670526
+## weight       -0.7577566
+## acceleration  0.3468215
+## year          0.4299042
+## origin        0.5136984
+## mpg01         1.0000000
+## mpg01.1       1.0000000</code></pre>
 <blockquote>
 <p>Grafico de dispersion</p>
 </blockquote>
@@ -744,116 +801,17 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 ##     mpg01</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 3):
 ## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 4):
+##     acceleration, cylinders, displacement,
+##     horsepower, mpg, mpg01, name, origin,
+##     weight, year</code></pre>
+<pre><code>## The following object is masked from package:ggplot2:
 ## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 5):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 6):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 7):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
+##     mpg</code></pre>
 <pre><code>## The following objects are masked from Auto (pos = 8):
 ## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 9):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 10):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 11):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 12):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 13):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 14):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 15):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 16):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 17):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 18):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 19):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 20):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 21):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 22):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 23):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 24):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 25):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 26):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 27):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 28):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 29):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     mpg01.1, name, origin, weight, year</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 30):
-## 
-##     acceleration, cylinders, displacement, horsepower, mpg, mpg01,
-##     name, origin, weight, year</code></pre>
+##     acceleration, cylinders, displacement,
+##     horsepower, mpg, mpg01, name, origin,
+##     weight, year</code></pre>
 <pre class="r"><code>layout(rbind(c(1,1,1,2,2,2,3,3,3),c(4,4,4,5,5,5,6,6,6)))
 boxplot(cylinders~mpg01,data = Auto,main=&quot;Cilindros vs mpg01&quot;)
 boxplot(displacement ~mpg01,data = Auto,main=&quot;Desplazamiento vs mpg01&quot;)

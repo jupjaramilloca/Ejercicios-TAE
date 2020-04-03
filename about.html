@@ -276,10 +276,16 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">Ensayo</a>
 </li>
 <li>
   <a href="about.html">Capitulo IV</a>
+</li>
+<li>
+  <a href="VIII.html">Capitulo VIII</a>
+</li>
+<li>
+  <a href="IX.html">Capitulo IX</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -310,7 +316,9 @@ $(document).ready(function () {
 <p>Desarrollo de los ejercicios del capitulo IV del libro <em>“Una introducción al aprendizaje estadistico con aplicaciones en R”</em></p>
 <div id="punto-10" class="section level2">
 <h2>Punto 10</h2>
-<p><strong>Estas pregunta deben respoderse utilizando el conjunto de datos <em>Weekly</em>, que es parte del paquete <em>ISLR</em>. Estos datos son similares en naturaleza a datos de <em>Smarket</em> de este capítulo, excepto que contiene 1,089 Regresos semanales durante 21 años, desde principios de 1990 hasta el final del 2010.</strong></p>
+<ul>
+<li><strong>Estas pregunta deben respoderse utilizando el conjunto de datos <em>Weekly</em>, que es parte del paquete <em>ISLR</em>. Estos datos son similares en naturaleza a datos de <em>Smarket</em> de este capítulo, excepto que contiene 1,089 Regresos semanales durante 21 años, desde principios de 1990 hasta el final del 2010.</strong></li>
+</ul>
 <p><strong>(a) Produzaca algunos resumenes numéricos y gráficos de los datos <em>Weekly</em>.¿ parace que hay patrones?.</strong></p>
 <blockquote>
 <p>Resumen de variables:</p>
@@ -318,55 +326,71 @@ $(document).ready(function () {
 <pre class="r"><code>library(ISLR)
 data(&quot;Weekly&quot;)
 summary(Weekly)</code></pre>
-<pre><code>##       Year           Lag1               Lag2               Lag3         
-##  Min.   :1990   Min.   :-18.1950   Min.   :-18.1950   Min.   :-18.1950  
-##  1st Qu.:1995   1st Qu.: -1.1540   1st Qu.: -1.1540   1st Qu.: -1.1580  
-##  Median :2000   Median :  0.2410   Median :  0.2410   Median :  0.2410  
-##  Mean   :2000   Mean   :  0.1506   Mean   :  0.1511   Mean   :  0.1472  
-##  3rd Qu.:2005   3rd Qu.:  1.4050   3rd Qu.:  1.4090   3rd Qu.:  1.4090  
-##  Max.   :2010   Max.   : 12.0260   Max.   : 12.0260   Max.   : 12.0260  
-##       Lag4               Lag5              Volume       
-##  Min.   :-18.1950   Min.   :-18.1950   Min.   :0.08747  
-##  1st Qu.: -1.1580   1st Qu.: -1.1660   1st Qu.:0.33202  
-##  Median :  0.2380   Median :  0.2340   Median :1.00268  
-##  Mean   :  0.1458   Mean   :  0.1399   Mean   :1.57462  
-##  3rd Qu.:  1.4090   3rd Qu.:  1.4050   3rd Qu.:2.05373  
-##  Max.   : 12.0260   Max.   : 12.0260   Max.   :9.32821  
-##      Today          Direction 
-##  Min.   :-18.1950   Down:484  
-##  1st Qu.: -1.1540   Up  :605  
-##  Median :  0.2410             
-##  Mean   :  0.1499             
-##  3rd Qu.:  1.4050             
-##  Max.   : 12.0260</code></pre>
+<pre><code>##       Year           Lag1         
+##  Min.   :1990   Min.   :-18.1950  
+##  1st Qu.:1995   1st Qu.: -1.1540  
+##  Median :2000   Median :  0.2410  
+##  Mean   :2000   Mean   :  0.1506  
+##  3rd Qu.:2005   3rd Qu.:  1.4050  
+##  Max.   :2010   Max.   : 12.0260  
+##       Lag2               Lag3         
+##  Min.   :-18.1950   Min.   :-18.1950  
+##  1st Qu.: -1.1540   1st Qu.: -1.1580  
+##  Median :  0.2410   Median :  0.2410  
+##  Mean   :  0.1511   Mean   :  0.1472  
+##  3rd Qu.:  1.4090   3rd Qu.:  1.4090  
+##  Max.   : 12.0260   Max.   : 12.0260  
+##       Lag4               Lag5         
+##  Min.   :-18.1950   Min.   :-18.1950  
+##  1st Qu.: -1.1580   1st Qu.: -1.1660  
+##  Median :  0.2380   Median :  0.2340  
+##  Mean   :  0.1458   Mean   :  0.1399  
+##  3rd Qu.:  1.4090   3rd Qu.:  1.4050  
+##  Max.   : 12.0260   Max.   : 12.0260  
+##      Volume            Today          Direction 
+##  Min.   :0.08747   Min.   :-18.1950   Down:484  
+##  1st Qu.:0.33202   1st Qu.: -1.1540   Up  :605  
+##  Median :1.00268   Median :  0.2410             
+##  Mean   :1.57462   Mean   :  0.1499             
+##  3rd Qu.:2.05373   3rd Qu.:  1.4050             
+##  Max.   :9.32821   Max.   : 12.0260</code></pre>
 <blockquote>
 <p>Matriz de gráfico de dispersión:</p>
 </blockquote>
 <pre class="r"><code>pairs(Weekly)</code></pre>
-<p><img src="about_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="about_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>En la primera matriz muestra un resumen de las variables a trabajar, observamos que todas estan a una misma escala, ecepto la varible dirección que cuenta con dos niveles (Alto y bajo). En la segunda matriz las varibles lag1,lag2,lag3,lag4,lag5 y volumen, son variables que entre ellas aparentemente las observaciones se concentrar en el centro; podemos notar que las varible año y variable volume tiene un comportamiento de un polinomio de grado dos acsendente mientras pasa el tiempo.</p>
 <blockquote>
 <p>Matriz de correlaciones</p>
 </blockquote>
 <pre class="r"><code>cor(Weekly[,-9])</code></pre>
-<pre><code>##               Year         Lag1        Lag2        Lag3         Lag4
-## Year    1.00000000 -0.032289274 -0.03339001 -0.03000649 -0.031127923
-## Lag1   -0.03228927  1.000000000 -0.07485305  0.05863568 -0.071273876
-## Lag2   -0.03339001 -0.074853051  1.00000000 -0.07572091  0.058381535
-## Lag3   -0.03000649  0.058635682 -0.07572091  1.00000000 -0.075395865
-## Lag4   -0.03112792 -0.071273876  0.05838153 -0.07539587  1.000000000
-## Lag5   -0.03051910 -0.008183096 -0.07249948  0.06065717 -0.075675027
-## Volume  0.84194162 -0.064951313 -0.08551314 -0.06928771 -0.061074617
-## Today  -0.03245989 -0.075031842  0.05916672 -0.07124364 -0.007825873
-##                Lag5      Volume        Today
-## Year   -0.030519101  0.84194162 -0.032459894
-## Lag1   -0.008183096 -0.06495131 -0.075031842
-## Lag2   -0.072499482 -0.08551314  0.059166717
-## Lag3    0.060657175 -0.06928771 -0.071243639
-## Lag4   -0.075675027 -0.06107462 -0.007825873
-## Lag5    1.000000000 -0.05851741  0.011012698
-## Volume -0.058517414  1.00000000 -0.033077783
-## Today   0.011012698 -0.03307778  1.000000000</code></pre>
+<pre><code>##               Year         Lag1        Lag2
+## Year    1.00000000 -0.032289274 -0.03339001
+## Lag1   -0.03228927  1.000000000 -0.07485305
+## Lag2   -0.03339001 -0.074853051  1.00000000
+## Lag3   -0.03000649  0.058635682 -0.07572091
+## Lag4   -0.03112792 -0.071273876  0.05838153
+## Lag5   -0.03051910 -0.008183096 -0.07249948
+## Volume  0.84194162 -0.064951313 -0.08551314
+## Today  -0.03245989 -0.075031842  0.05916672
+##               Lag3         Lag4         Lag5
+## Year   -0.03000649 -0.031127923 -0.030519101
+## Lag1    0.05863568 -0.071273876 -0.008183096
+## Lag2   -0.07572091  0.058381535 -0.072499482
+## Lag3    1.00000000 -0.075395865  0.060657175
+## Lag4   -0.07539587  1.000000000 -0.075675027
+## Lag5    0.06065717 -0.075675027  1.000000000
+## Volume -0.06928771 -0.061074617 -0.058517414
+## Today  -0.07124364 -0.007825873  0.011012698
+##             Volume        Today
+## Year    0.84194162 -0.032459894
+## Lag1   -0.06495131 -0.075031842
+## Lag2   -0.08551314  0.059166717
+## Lag3   -0.06928771 -0.071243639
+## Lag4   -0.06107462 -0.007825873
+## Lag5   -0.05851741  0.011012698
+## Volume  1.00000000 -0.033077783
+## Today  -0.03307778  1.000000000</code></pre>
 <p><strong>(b) Utilice el conjunto de datos completo para realizar una regresion logística con <em>Direction</em> como la respuesta y la cinco varibles de retraso mas <em>Volume</em> como predictoras. Use la funcion summary para imprimir los resultados. ¿algunos de los predictores parece ser estadisticamente significativos? si es asi ¿cuales son estas variables? </strong></p>
 <blockquote>
 <p>Resumen Regresión logística</p>
@@ -383,16 +407,25 @@ summary(mod1)</code></pre>
 ## -1.6949  -1.2565   0.9913   1.0849   1.4579  
 ## 
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)   
-## (Intercept)  0.26686    0.08593   3.106   0.0019 **
-## Lag1        -0.04127    0.02641  -1.563   0.1181   
-## Lag2         0.05844    0.02686   2.175   0.0296 * 
-## Lag3        -0.01606    0.02666  -0.602   0.5469   
-## Lag4        -0.02779    0.02646  -1.050   0.2937   
-## Lag5        -0.01447    0.02638  -0.549   0.5833   
-## Volume      -0.02274    0.03690  -0.616   0.5377   
+##             Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)  0.26686    0.08593   3.106   0.0019
+## Lag1        -0.04127    0.02641  -1.563   0.1181
+## Lag2         0.05844    0.02686   2.175   0.0296
+## Lag3        -0.01606    0.02666  -0.602   0.5469
+## Lag4        -0.02779    0.02646  -1.050   0.2937
+## Lag5        -0.01447    0.02638  -0.549   0.5833
+## Volume      -0.02274    0.03690  -0.616   0.5377
+##               
+## (Intercept) **
+## Lag1          
+## Lag2        * 
+## Lag3          
+## Lag4          
+## Lag5          
+## Volume        
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -432,11 +465,15 @@ summary(mod2)</code></pre>
 ## -1.536  -1.264   1.021   1.091   1.368  
 ## 
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)   
-## (Intercept)  0.20326    0.06428   3.162  0.00157 **
-## Lag2         0.05810    0.02870   2.024  0.04298 * 
+##             Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)  0.20326    0.06428   3.162  0.00157
+## Lag2         0.05810    0.02870   2.024  0.04298
+##               
+## (Intercept) **
+## Lag2        * 
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -597,14 +634,17 @@ prediction_knn2 &lt;- knn(train = train.x,test = test.x,cl = train.Direction,k =
 <p>De esta tabla se puede concluir que el modelo de regresión logística y LDA tienen el mejor rendimiento en tasas de error de prueba.</p>
 </div>
 <div id="punto-11" class="section level2">
-<h2>punto 11</h2>
-<p><strong>En este problema, desarrollará un modelo para predecir si un automóvil determinado obtiene un consumo de combustible alto o bajo en función del conjunto de datos automático.</strong></p>
+<h2>Punto 11</h2>
+<ul>
+<li><strong>En este problema, desarrollará un modelo para predecir si un automóvil determinado obtiene un consumo de combustible alto o bajo en función del conjunto de datos automático.</strong></li>
+</ul>
 <p><strong>(a) Cree una variable binaria, mpg01, que contenga un 1 si mpg contiene un valor por encima de su mediana, y un 0 si mpg contiene un valor por debajo de su mediana. Puede calcular la mediana utilizando la función median(). Tenga en cuenta que puede resultarle útil utilizar la función data.frame() para crear un único conjunto de datos que contenga tanto mpg01 como las otras variables automáticas.</strong></p>
 <pre class="r"><code>library(ISLR)
 data(Auto)
 n &lt;- length(Auto$mpg)
+
 mpg01 &lt;- ifelse( Auto$mpg &gt; median(Auto$mpg),1,0)
-Auto &lt;- data.frame(Auto,mpg01)</code></pre>
+Auto$mpg01 &lt;- as.numeric(mpg01)</code></pre>
 <pre class="r"><code>knitr::kable(head(Auto),caption = &quot;Cabeza de base de datos Auto con variable mpg01&quot;)</code></pre>
 <table>
 <caption>Cabeza de base de datos Auto con variable mpg01</caption>
@@ -702,31 +742,53 @@ Auto &lt;- data.frame(Auto,mpg01)</code></pre>
 <p>Correlaciones entre variables:</p>
 </blockquote>
 <pre class="r"><code>cor(Auto[,-9])</code></pre>
-<pre><code>##                     mpg  cylinders displacement horsepower     weight
-## mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268 -0.8322442
-## cylinders    -0.7776175  1.0000000    0.9508233  0.8429834  0.8975273
-## displacement -0.8051269  0.9508233    1.0000000  0.8972570  0.9329944
-## horsepower   -0.7784268  0.8429834    0.8972570  1.0000000  0.8645377
-## weight       -0.8322442  0.8975273    0.9329944  0.8645377  1.0000000
-## acceleration  0.4233285 -0.5046834   -0.5438005 -0.6891955 -0.4168392
-## year          0.5805410 -0.3456474   -0.3698552 -0.4163615 -0.3091199
-## origin        0.5652088 -0.5689316   -0.6145351 -0.4551715 -0.5850054
-## mpg01         0.8369392 -0.7591939   -0.7534766 -0.6670526 -0.7577566
-##              acceleration       year     origin      mpg01
-## mpg             0.4233285  0.5805410  0.5652088  0.8369392
-## cylinders      -0.5046834 -0.3456474 -0.5689316 -0.7591939
-## displacement   -0.5438005 -0.3698552 -0.6145351 -0.7534766
-## horsepower     -0.6891955 -0.4163615 -0.4551715 -0.6670526
-## weight         -0.4168392 -0.3091199 -0.5850054 -0.7577566
-## acceleration    1.0000000  0.2903161  0.2127458  0.3468215
-## year            0.2903161  1.0000000  0.1815277  0.4299042
-## origin          0.2127458  0.1815277  1.0000000  0.5136984
-## mpg01           0.3468215  0.4299042  0.5136984  1.0000000</code></pre>
+<pre><code>##                     mpg  cylinders displacement
+## mpg           1.0000000 -0.7776175   -0.8051269
+## cylinders    -0.7776175  1.0000000    0.9508233
+## displacement -0.8051269  0.9508233    1.0000000
+## horsepower   -0.7784268  0.8429834    0.8972570
+## weight       -0.8322442  0.8975273    0.9329944
+## acceleration  0.4233285 -0.5046834   -0.5438005
+## year          0.5805410 -0.3456474   -0.3698552
+## origin        0.5652088 -0.5689316   -0.6145351
+## mpg01         0.8369392 -0.7591939   -0.7534766
+##              horsepower     weight acceleration
+## mpg          -0.7784268 -0.8322442    0.4233285
+## cylinders     0.8429834  0.8975273   -0.5046834
+## displacement  0.8972570  0.9329944   -0.5438005
+## horsepower    1.0000000  0.8645377   -0.6891955
+## weight        0.8645377  1.0000000   -0.4168392
+## acceleration -0.6891955 -0.4168392    1.0000000
+## year         -0.4163615 -0.3091199    0.2903161
+## origin       -0.4551715 -0.5850054    0.2127458
+## mpg01        -0.6670526 -0.7577566    0.3468215
+##                    year     origin      mpg01
+## mpg           0.5805410  0.5652088  0.8369392
+## cylinders    -0.3456474 -0.5689316 -0.7591939
+## displacement -0.3698552 -0.6145351 -0.7534766
+## horsepower   -0.4163615 -0.4551715 -0.6670526
+## weight       -0.3091199 -0.5850054 -0.7577566
+## acceleration  0.2903161  0.2127458  0.3468215
+## year          1.0000000  0.1815277  0.4299042
+## origin        0.1815277  1.0000000  0.5136984
+## mpg01         0.4299042  0.5136984  1.0000000</code></pre>
 <blockquote>
 <p>Grafico de dispersion</p>
 </blockquote>
 <pre class="r"><code>pairs(Auto)</code></pre>
-<p><img src="about_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="about_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre class="r"><code>attach(Auto)</code></pre>
+<pre><code>## The following object is masked _by_ .GlobalEnv:
+## 
+##     mpg01</code></pre>
+<pre><code>## The following object is masked from package:ggplot2:
+## 
+##     mpg</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 7):
+## 
+##     acceleration, cylinders, displacement,
+##     horsepower, mpg, mpg01, name, origin,
+##     weight, year</code></pre>
 <pre class="r"><code>layout(rbind(c(1,1,1,2,2,2,3,3,3),c(4,4,4,5,5,5,6,6,6)))
 boxplot(cylinders~mpg01,data = Auto,main=&quot;Cilindros vs mpg01&quot;)
 boxplot(displacement ~mpg01,data = Auto,main=&quot;Desplazamiento vs mpg01&quot;)
@@ -734,34 +796,545 @@ boxplot(horsepower ~mpg01,data = Auto,main=&quot;Caballos de fuerza vs mpg01&quo
 boxplot(weight ~mpg01,data = Auto,main=&quot;Peso del vehiculo vs mpg01&quot;)
 boxplot(acceleration ~mpg01,data = Auto,main=&quot;Aceleración vs mpg01&quot;)
 boxplot(year ~mpg01,data = Auto,main=&quot;Modelo vs mpg01&quot;)</code></pre>
-<p><img src="about_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="about_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p><strong>(c) Divida los datos en un conjunto de entrenamiento y un conjunto de prueba.</strong></p>
+<pre class="r"><code>train &lt;- sample(seq(length(Auto$mpg01)),length(Auto$mpg01)*0.70,replace = FALSE)
+data_train &lt;- Auto[train,]
+data_test &lt;- Auto[-train,]</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>Entranamiento</th>
+<th>Prueba</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>274</td>
+<td>118</td>
+<td>392</td>
+</tr>
+<tr class="even">
+<td>————-</td>
+<td>——-</td>
+<td>—–</td>
+</tr>
+</tbody>
+</table>
 <p><strong>(d) Realice LDA en los datos de entrenamiento para predecir mpg01 usando las variables que parecían más asociadas con mpg01 en (b). ¿Cuál es el error de prueba del modelo obtenido?</strong></p>
+<pre class="r"><code>require(MASS)
+fit.lda &lt;- lda(mpg01 ~ cylinders+displacement+horsepower+weight,Auto)
+fit.lda</code></pre>
+<pre><code>## Call:
+## lda(mpg01 ~ cylinders + displacement + horsepower + weight, data = Auto)
+## 
+## Prior probabilities of groups:
+##   0   1 
+## 0.5 0.5 
+## 
+## Group means:
+##   cylinders displacement horsepower   weight
+## 0  6.765306     273.1582  130.11224 3620.403
+## 1  4.178571     115.6658   78.82653 2334.765
+## 
+## Coefficients of linear discriminants:
+##                        LD1
+## cylinders    -0.4708126926
+## displacement -0.0014339977
+## horsepower    0.0044241441
+## weight       -0.0009846242</code></pre>
+<pre class="r"><code>pred.lda &lt;- predict(fit.lda,data_test)
+table(pred.lda$class,data_test$mpg01)</code></pre>
+<pre><code>##    
+##      0  1
+##   0 51  3
+##   1 11 53</code></pre>
+<pre class="r"><code>mean(pred.lda$class != data_test$mpg01)</code></pre>
+<pre><code>## [1] 0.1186441</code></pre>
+<p>Con los resultados anteriores podemos concluir que la tasa de error es del 11.01%.</p>
 <p><strong>(e) Realice QDA en los datos de entrenamiento para predecir mpg01 usando las variables que parecían más asociadas con mpg01 en (b). ¿Cuál es el error de prueba del modelo obtenido?</strong></p>
+<pre class="r"><code>fit.qda &lt;- qda(mpg01~cylinders+displacement+horsepower,data = data_train)
+fit.qda</code></pre>
+<pre><code>## Call:
+## qda(mpg01 ~ cylinders + displacement + horsepower, data = data_train)
+## 
+## Prior probabilities of groups:
+##         0         1 
+## 0.4890511 0.5109489 
+## 
+## Group means:
+##   cylinders displacement horsepower
+## 0  6.783582     278.5970   132.8881
+## 1  4.185714     117.8071    80.1500</code></pre>
+<pre class="r"><code>pred.qda &lt;- predict(fit.qda,data_test)
+table(pred.qda$class,data_test$mpg01)</code></pre>
+<pre><code>##    
+##      0  1
+##   0 53  3
+##   1  9 53</code></pre>
+<pre class="r"><code>mean(pred.qda$class != data_test$mpg01)</code></pre>
+<pre><code>## [1] 0.1016949</code></pre>
+<p>Con los resultados anteriores podemos concluir que la tasa de error es del 11.01%.</p>
 <p><strong>(f) Realice una regresión logística en los datos de entrenamiento para predecir mpg01 usando las variables que parecían más asociadas con mpg01 en (b). ¿Cuál es el error de prueba del modelo obtenido?</strong></p>
+<pre class="r"><code>fit.glm &lt;- glm(mpg01 ~ cylinders+displacement+horsepower+weight+acceleration,family = binomial,data_train)
+summary(fit.glm)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = mpg01 ~ cylinders + displacement + horsepower + 
+##     weight + acceleration, family = binomial, data = data_train)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.4925  -0.1566   0.1188   0.3611   3.2309  
+## 
+## Coefficients:
+##               Estimate Std. Error z value
+## (Intercept)  11.730488   3.276787   3.580
+## cylinders    -0.136576   0.404783  -0.337
+## displacement -0.007845   0.009597  -0.817
+## horsepower   -0.033194   0.024676  -1.345
+## weight       -0.002468   0.001116  -2.212
+## acceleration  0.038322   0.159330   0.241
+##              Pr(&gt;|z|)    
+## (Intercept)  0.000344 ***
+## cylinders    0.735811    
+## displacement 0.413649    
+## horsepower   0.178556    
+## weight       0.026996 *  
+## acceleration 0.809930    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 379.71  on 273  degrees of freedom
+## Residual deviance: 147.81  on 268  degrees of freedom
+## AIC: 159.81
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
+<pre class="r"><code>pr&lt;- predict(fit.glm,data_test,type = &quot;response&quot;)
+pred.glm &lt;- rep(0,length(pr))
+pred.glm[pr&gt;0.5]&lt;-1
+table(pred.glm,data_test$mpg01)</code></pre>
+<pre><code>##         
+## pred.glm  0  1
+##        0 52  3
+##        1 10 53</code></pre>
+<pre class="r"><code>mean(pred.glm != data_test$mpg01)</code></pre>
+<pre><code>## [1] 0.1101695</code></pre>
+<p>Con los resultados anteriores podemos concluir que la tasa de error es del 11.86%.</p>
 <p><strong>(g) Realice KNN en los datos de entrenamiento, con varios valores de K, para predecir mpg01. Use solo las variables que parecían más asociadas con mpg01 en (b). ¿Qué errores de prueba obtienes? ¿Qué valor de K parece tener el mejor rendimiento en este conjunto de datos?</strong></p>
+<pre class="r"><code>require(ggplot2)
+require(factoextra)
+require(class)
+require(caret)
+set.seed(0511)
+ctrl &lt;- trainControl(method=&quot;repeatedcv&quot;,repeats = 3) 
+knnFit &lt;- train(mpg01 ~ cylinders+displacement+horsepower+weight+acceleration, data =data_train[,-c(1,7,8,9)], method = &quot;knn&quot;, trControl = ctrl, preProcess = c(&quot;center&quot;,&quot;scale&quot;), tuneLength = 20)</code></pre>
+<pre><code>## Warning in train.default(x, y, weights = w, ...):
+## You are trying to do regression and your outcome
+## only has two possible values Are you trying to
+## do classification? If so, use a 2 level factor as
+## your outcome column.</code></pre>
+<pre class="r"><code>knnFit</code></pre>
+<pre><code>## k-Nearest Neighbors 
+## 
+## 274 samples
+##   5 predictor
+## 
+## Pre-processing: centered (5), scaled (5) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 247, 247, 247, 247, 246, 246, ... 
+## Resampling results across tuning parameters:
+## 
+##   k   RMSE       Rsquared   MAE      
+##    5  0.2709708  0.6979037  0.1286302
+##    7  0.2713301  0.6968050  0.1292454
+##    9  0.2726973  0.6930125  0.1294346
+##   11  0.2736691  0.6915098  0.1297379
+##   13  0.2729329  0.6936903  0.1295322
+##   15  0.2729771  0.6933831  0.1306715
+##   17  0.2735369  0.6921145  0.1339905
+##   19  0.2719473  0.6949305  0.1350390
+##   21  0.2715098  0.6954442  0.1349488
+##   23  0.2702342  0.6983195  0.1345780
+##   25  0.2691609  0.7000602  0.1350501
+##   27  0.2684711  0.7012004  0.1348921
+##   29  0.2678725  0.7024637  0.1357875
+##   31  0.2677365  0.7021130  0.1373713
+##   33  0.2677746  0.7020566  0.1388125
+##   35  0.2680418  0.7019449  0.1393829
+##   37  0.2685144  0.7010486  0.1403205
+##   39  0.2695820  0.6986589  0.1425199
+##   41  0.2700590  0.6981728  0.1451056
+##   43  0.2704618  0.6973038  0.1476165
+## 
+## RMSE was used to select the optimal model
+##  using the smallest value.
+## The final value used for the model was k = 31.</code></pre>
+<p>se obtuvo un k optimo de 7 procedemos con el modelo.</p>
+<pre class="r"><code>train.x &lt;- as.matrix(data_train[,-c(1,7,8,9)])
+test.x &lt;- as.matrix(data_test[,-c(1,7,8,9)])
+train.y &lt;- as.matrix(data_train$mpg01)
+test.y &lt;- as.matrix(data_test$mpg01)
+set.seed(0511)
+pred.knn &lt;- knn(train = train.x,test = test.x,cl = train.y,k = 7)
+table(pred.knn,test.y)</code></pre>
+<pre><code>##         test.y
+## pred.knn  0  1
+##        0 52  4
+##        1 10 52</code></pre>
+<pre class="r"><code>mean(pred.knn !=test.y)</code></pre>
+<pre><code>## [1] 0.1186441</code></pre>
+<p>con los resultados obtenidos con un K=7 optimo la tasa de error es de 13.55%.</p>
+<p><strong>Conclución general</strong>: Los mejores modelos son LDA y QDA con una tasa de error de 11.01%</p>
 </div>
 <div id="punto-12" class="section level2">
 <h2>Punto 12</h2>
-<p><strong>Este problema implica escribir funciones.</strong></p>
+<ul>
+<li><strong>Este problema implica escribir funciones.</strong></li>
+</ul>
 <p><strong>(a) Escriba una función, Power(), que imprima el resultado de elevar 2 a la tercera potencia. En otras palabras, su función debe calcular <span class="math inline">\(2^3\)</span> e imprimir los resultados.Sugerencia: recuerde que <span class="math inline">\(x^a\)</span> eleva x a la potencia a. Use la función print() para generar el resultado.</strong></p>
+<pre class="r"><code>Power &lt;- function() {
+    2^3
+}
+
+Power()</code></pre>
+<pre><code>## [1] 8</code></pre>
 <p><strong>(b) Cree una nueva función, Power2(), que le permita pasar dos números, x y a, e imprima el valor de <span class="math inline">\(x^a\)</span>. Puede hacer esto comenzando su función con la línea</strong></p>
-<p><strong>Power2 = function (x,a){ </strong></p>
-<p><strong>Debería poder llamar a su función ingresando, por ejemplo,</strong></p>
-<p><strong>Power2(3,8)</strong></p>
-<p><strong>en la línea de comando. Esto debería generar el valor de <span class="math inline">\(3^8\)</span>, es decir, 6, 561.</strong></p>
+<pre class="r"><code>power &lt;- function(){2^3}
+power()</code></pre>
+<pre><code>## [1] 8</code></pre>
+<p><strong>(b) Cree una nueva función, Power2(), que le permita pasar dos números, x y a, e imprima el valor de <span class="math inline">\(x^a\)</span>. Puede hacer esto comenzando su función con la línea</strong></p>
+<pre class="r"><code>Power2 &lt;- function (x,a){x^a}
+
+Power2(3,8)</code></pre>
+<pre><code>## [1] 6561</code></pre>
+<pre class="r"><code>Power2 &lt;- function(x, a) {
+    x^a
+}
+
+Power2(3, 8)</code></pre>
+<pre><code>## [1] 6561</code></pre>
 <p><strong>(c) Usando la función Power2() que acaba de escribir, calcule <span class="math inline">\(10^3\)</span>, <span class="math inline">\(8^17\)</span> y <span class="math inline">\(131^3\)</span>.</strong></p>
+<pre class="r"><code>Power2(10,3)</code></pre>
+<pre><code>## [1] 1000</code></pre>
+<pre class="r"><code>Power2(8,17)</code></pre>
+<pre><code>## [1] 2.2518e+15</code></pre>
+<pre class="r"><code>Power2(131,3)</code></pre>
+<pre><code>## [1] 2248091</code></pre>
 <p><strong>(d) Ahora cree una nueva función, Power3(), que realmente devuelve el resultado x^a como un objeto R, en lugar de simplemente imprimirlo en la pantalla. Es decir, si almacena el valor x^a en un objeto llamado resultado dentro de su función, simplemente puede return() este resultado, utilizando la siguiente línea:</strong></p>
-<p><strong>return(result)</strong></p>
-<p><strong>La línea de arriba debe ser la última línea en su función, antes del símbolo}.</strong></p>
+<pre class="r"><code>power3 &lt;- function(x,a){
+  resultado &lt;- x^a
+  return(resultado)
+}</code></pre>
+<pre class="r"><code>Power3 &lt;- function(x , a) {
+    result &lt;- x^a
+    return(result)
+}</code></pre>
 <p><strong>(e) Ahora, utilizando la función Power3 (), cree un plot de f(x) = <span class="math inline">\(x^2\)</span>. El eje x debe mostrar un rango de enteros del 1 al 10, y el eje y debería mostrar <span class="math inline">\(x^2\)</span>. Rotule los ejes apropiadamente y use un título apropiado para la figura. Considere mostrar el eje x, el eje y o ambos en la escala logarítmica. Puede hacerlo utilizando log = ‘‘ x’’, log = ‘‘ y’’ o log = ‘‘ xy’’ como argumentos de la función plot()</strong></p>
+<blockquote>
+<p>función a graficar:</p>
+</blockquote>
+<p><span class="math display">\[f(x)=x^2\]</span></p>
+<pre class="r"><code>x &lt;- 1:10
+plot(x,power3(x,2),log = &quot;xy&quot;,xlab = &quot;log de x&quot;,ylab = &quot;log de x^2&quot;,main = &quot;log de x^2 vs log de x&quot;)</code></pre>
+<p><img src="about_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<pre class="r"><code>x &lt;- 1:10
+plot(x, Power3(x, 2), log = &quot;xy&quot;, xlab = &quot;Log of x&quot;, ylab = &quot;Log of x^2&quot;, main = &quot;Log of x^2 vs Log of x&quot;)</code></pre>
+<p><img src="about_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <p><strong>(f) Cree una función, PlotPower (), que le permite crear una gráfica de x contra x ^ a para un a fijo y para un rango de valores de x. Por ejemplo, si llamas</strong></p>
-<p><strong>plotPower(1:10,3)</strong></p>
-<p><strong>entonces se debe crear un gráfico con un eje x que tome valores 333 1,2, …, 10 y un eje y que toma los valores <span class="math inline">\(1^3\)</span>,<span class="math inline">\(2^3\)</span>, …, <span class="math inline">\(10^3\)</span>.</strong></p>
+<p><strong>entonces se debe crear un gráfico con un eje x que tome valores 1,2, …, 10 y un eje y que toma los valores <span class="math inline">\(1^3\)</span>,<span class="math inline">\(2^3\)</span>, …, <span class="math inline">\(10^3\)</span>.</strong></p>
+<pre class="r"><code>plotpower &lt;- function(x,a){
+  plot(x,power3(x,a))
+}
+plotpower(1:10,3)</code></pre>
+<p><img src="about_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<pre class="r"><code>PlotPower &lt;- function(x, a) {
+    plot(x, Power3(x, a))
+}
+
+PlotPower(1:10, 3)</code></pre>
+<p><img src="about_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 </div>
 <div id="punto-13" class="section level2">
-<h2>punto 13</h2>
+<h2>Punto 13</h2>
 <p><strong>Utilizando el conjunto de datos de Boston, ajuste los modelos de clasificación para predecir si un suburbio determinado tiene una tasa de criminalidad superior o inferior a la mediana. Explore los modelos de regresión logística, LDA y KNN utilizando varios subconjuntos de predictores. Describe tus hallazgos.</strong></p>
+<pre class="r"><code>library(MASS)
+data(&quot;Boston&quot;)
+medianacrim &lt;- median(Boston$crim)
+crim01 &lt;- rep(0,length(Boston$crim))
+crim01[Boston[1]&gt;medianacrim] &lt;- 1
+Boston$crim01 &lt;- crim01
+train &lt;- sample(seq(length(Boston$crim01)),length(Boston$crim01)*0.70,replace = FALSE)
+data_train &lt;- Boston[train,]
+data_test &lt;- Boston[-train,]</code></pre>
+<blockquote>
+<p>Regresion logistica:</p>
+</blockquote>
+<pre class="r"><code>fit.glm &lt;- glm(crim01~zn+indus+chas+nox+rm+age+dis+rad+tax+ptratio+black+lstat,family = binomial,data_train)
+summary(fit.glm)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = crim01 ~ zn + indus + chas + nox + rm + age + dis + 
+##     rad + tax + ptratio + black + lstat, family = binomial, data = data_train)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.9848  -0.1797  -0.0017   0.0034   3.3317  
+## 
+## Coefficients:
+##               Estimate Std. Error z value
+## (Intercept) -30.570448   7.823691  -3.907
+## zn           -0.066360   0.039966  -1.660
+## indus        -0.043417   0.053660  -0.809
+## chas          0.812084   0.893650   0.909
+## nox          46.839608   8.845996   5.295
+## rm            0.280004   0.563847   0.497
+## age           0.022823   0.014516   1.572
+## dis           0.483227   0.236176   2.046
+## rad           0.693487   0.184343   3.762
+## tax          -0.009323   0.003294  -2.830
+## ptratio       0.178923   0.121506   1.473
+## black        -0.006888   0.005393  -1.277
+## lstat        -0.036400   0.057403  -0.634
+##             Pr(&gt;|z|)    
+## (Intercept) 9.33e-05 ***
+## zn          0.096830 .  
+## indus       0.418451    
+## chas        0.363495    
+## nox         1.19e-07 ***
+## rm          0.619474    
+## age         0.115881    
+## dis         0.040752 *  
+## rad         0.000169 ***
+## tax         0.004649 ** 
+## ptratio     0.140874    
+## black       0.201544    
+## lstat       0.526006    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 490.70  on 353  degrees of freedom
+## Residual deviance: 151.08  on 341  degrees of freedom
+## AIC: 177.08
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<pre class="r"><code>prob.glm &lt;- predict(fit.glm,data_test,type = &quot;response&quot;)
+pred.glm &lt;- rep(0,length(prob.glm))
+pred.glm[prob.glm &gt; 0.5] &lt;- 1
+table(pred.glm,data_test$crim01)</code></pre>
+<pre><code>##         
+## pred.glm  0  1
+##        0 65  9
+##        1  9 69</code></pre>
+<pre class="r"><code>mean(pred.glm != data_test$crim01)</code></pre>
+<pre><code>## [1] 0.1184211</code></pre>
+<p>con los resultados obtenidos la tasa de error es de 13.15%</p>
+<p>Con variables predictora con correlacion fuerte</p>
+<pre class="r"><code>fit.glm1 &lt;- glm(crim01~indus+nox+age+dis+rad+tax+black+lstat,family = binomial,data_train)
+summary(fit.glm1)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = crim01 ~ indus + nox + age + dis + rad + tax + 
+##     black + lstat, family = binomial, data = data_train)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -1.96371  -0.22572  -0.01948   0.00597   2.91220  
+## 
+## Coefficients:
+##               Estimate Std. Error z value
+## (Intercept) -23.472808   5.213152  -4.503
+## indus        -0.052668   0.054397  -0.968
+## nox          45.719887   8.902831   5.135
+## age           0.024557   0.012887   1.906
+## dis           0.265804   0.187558   1.417
+## rad           0.620643   0.146227   4.244
+## tax          -0.009174   0.003001  -3.057
+## black        -0.007900   0.005400  -1.463
+## lstat        -0.042885   0.040838  -1.050
+##             Pr(&gt;|z|)    
+## (Intercept) 6.71e-06 ***
+## indus        0.33293    
+## nox         2.81e-07 ***
+## age          0.05671 .  
+## dis          0.15643    
+## rad         2.19e-05 ***
+## tax          0.00223 ** 
+## black        0.14348    
+## lstat        0.29366    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 490.70  on 353  degrees of freedom
+## Residual deviance: 160.24  on 345  degrees of freedom
+## AIC: 178.24
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+<pre class="r"><code>prob.glm1 &lt;- predict(fit.glm1,data_test,type = &quot;response&quot;)
+pred.glm1 &lt;- rep(0,length(prob.glm1))
+pred.glm1[prob.glm1 &gt; 0.5] &lt;- 1
+table(pred.glm1,data_test$crim01)</code></pre>
+<pre><code>##          
+## pred.glm1  0  1
+##         0 67 12
+##         1  7 66</code></pre>
+<pre class="r"><code>mean(pred.glm1 != data_test$crim01)</code></pre>
+<pre><code>## [1] 0.125</code></pre>
+<p>con estos variables predictoras la tasa de error es de 15.13%.</p>
+<blockquote>
+<p>LDA:</p>
+</blockquote>
+<pre class="r"><code>fit.lda &lt;- lda(crim01~zn+indus+chas+nox+rm+age+dis+rad+tax+ptratio+black+lstat , data = data_train)
+fit.lda</code></pre>
+<pre><code>## Call:
+## lda(crim01 ~ zn + indus + chas + nox + rm + age + dis + rad + 
+##     tax + ptratio + black + lstat, data = data_train)
+## 
+## Prior probabilities of groups:
+##         0         1 
+## 0.5056497 0.4943503 
+## 
+## Group means:
+##          zn     indus       chas       nox
+## 0 22.460894  7.143631 0.04469274 0.4708587
+## 1  1.268571 15.137771 0.09142857 0.6337086
+##         rm      age      dis       rad      tax
+## 0 6.399620 50.44469 5.153022  4.201117 311.8156
+## 1 6.170234 85.79200 2.523521 14.777143 506.8000
+##    ptratio    black     lstat
+## 0 17.92514 388.2874  9.549944
+## 1 18.96800 319.7955 15.626343
+## 
+## Coefficients of linear discriminants:
+##                   LD1
+## zn      -0.0034199390
+## indus    0.0102997449
+## chas     0.0808703228
+## nox      7.2261112533
+## rm       0.0612382181
+## age      0.0167656971
+## dis     -0.0027187266
+## rad      0.0970467645
+## tax     -0.0018560309
+## ptratio -0.0064709707
+## black   -0.0005065647
+## lstat   -0.0255231030</code></pre>
+<pre class="r"><code>pred.lda &lt;- predict(fit.lda,data_test)
+table(pred.lda$class,data_test$crim01)</code></pre>
+<pre><code>##    
+##      0  1
+##   0 69 15
+##   1  5 63</code></pre>
+<pre class="r"><code>mean(pred.lda$class != data_test$crim01)</code></pre>
+<pre><code>## [1] 0.1315789</code></pre>
+<p>Con los resultados obtenidos con este metodo, la tasa de error es de 17.10% mas que la regresión logistíca.</p>
+<p>Ahora con las variables predictoras con correlación fuerte.</p>
+<pre class="r"><code>fit.lda1 &lt;- lda(crim01~indus+nox+age+dis+rad+tax+black+lstat , data = data_train)
+fit.lda1</code></pre>
+<pre><code>## Call:
+## lda(crim01 ~ indus + nox + age + dis + rad + tax + black + lstat, 
+##     data = data_train)
+## 
+## Prior probabilities of groups:
+##         0         1 
+## 0.5056497 0.4943503 
+## 
+## Group means:
+##       indus       nox      age      dis       rad
+## 0  7.143631 0.4708587 50.44469 5.153022  4.201117
+## 1 15.137771 0.6337086 85.79200 2.523521 14.777143
+##        tax    black     lstat
+## 0 311.8156 388.2874  9.549944
+## 1 506.8000 319.7955 15.626343
+## 
+## Coefficients of linear discriminants:
+##                 LD1
+## indus  0.0118027470
+## nox    7.2267222513
+## age    0.0174936477
+## dis   -0.0237077126
+## rad    0.0998803157
+## tax   -0.0021239136
+## black -0.0005370087
+## lstat -0.0291598636</code></pre>
+<pre class="r"><code>pred.lda &lt;- predict(fit.lda,data_test)
+table(pred.lda$class,data_test$crim01)</code></pre>
+<pre><code>##    
+##      0  1
+##   0 69 15
+##   1  5 63</code></pre>
+<pre class="r"><code>mean(pred.lda$class != data_test$crim01)</code></pre>
+<pre><code>## [1] 0.1315789</code></pre>
+<p>Con estas covariables se obtiene una tasa de error de 17.10% igual que la anterior pero por pricipio de parcimonia es mejor este modelo con pocas variables</p>
+<blockquote>
+<p>KNN</p>
+</blockquote>
+<pre class="r"><code>set.seed(0511)
+data_train$crim01 &lt;- as.factor(data_train$crim01)
+ctrl &lt;- trainControl(method=&quot;repeatedcv&quot;,repeats = 3) 
+knnFit &lt;- train(crim01~zn+indus+chas+nox+rm+age+dis+rad+tax+ptratio+black+lstat, data =data_train, method = &quot;knn&quot;, trControl = ctrl, preProcess = c(&quot;center&quot;,&quot;scale&quot;), tuneLength = 20)
+knnFit</code></pre>
+<pre><code>## k-Nearest Neighbors 
+## 
+## 354 samples
+##  12 predictor
+##   2 classes: &#39;0&#39;, &#39;1&#39; 
+## 
+## Pre-processing: centered (12), scaled (12) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 318, 319, 319, 319, 318, 319, ... 
+## Resampling results across tuning parameters:
+## 
+##   k   Accuracy   Kappa    
+##    5  0.9057672  0.8113559
+##    7  0.8755556  0.7509298
+##    9  0.8576984  0.7151367
+##   11  0.8641799  0.7281249
+##   13  0.8500000  0.6996443
+##   15  0.8396296  0.6788571
+##   17  0.8302646  0.6600574
+##   19  0.8358201  0.6711574
+##   21  0.8320635  0.6635468
+##   23  0.8284127  0.6562289
+##   25  0.8181746  0.6357683
+##   27  0.8144444  0.6283471
+##   29  0.8152116  0.6296212
+##   31  0.8113492  0.6218266
+##   33  0.8114286  0.6218624
+##   35  0.8096032  0.6181100
+##   37  0.8076984  0.6142139
+##   39  0.7888889  0.5764674
+##   41  0.7907672  0.5801909
+##   43  0.7935714  0.5857363
+## 
+## Accuracy was used to select the optimal
+##  model using the largest value.
+## The final value used for the model was k = 5.</code></pre>
+<p>Un K optimo para este metodo de clasificación es 5.</p>
+<pre class="r"><code>train.x &lt;- as.matrix(data_train[,-c(1,14)])
+test.x &lt;- as.matrix(data_test[,-c(1,14)])
+train.y &lt;- as.matrix(data_train$crim01)
+test.y &lt;- as.matrix(data_test$crim01)
+set.seed(0511)
+pred.knn &lt;- knn(train = train.x , test = test.x,cl = train.y,k=5)
+table(pred.knn,test.y)</code></pre>
+<pre><code>##         test.y
+## pred.knn  0  1
+##        0 66  7
+##        1  8 71</code></pre>
+<pre class="r"><code>mean(pred.knn !=test.y)</code></pre>
+<pre><code>## [1] 0.09868421</code></pre>
+<p>Este metodo tiene una tasa de error de 7.2% mucho mejor que los anteriores.</p>
 </div>
 </div>
 
