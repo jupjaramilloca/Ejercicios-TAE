@@ -18,5 +18,9 @@ output:
     theme: cerulean
     highlight: textmate
     code_folding: hide
-    
+
+
+right:
+    - icon: fa-github
+      href: https://github.com/jupjaramilloca/Ejercicios-TAE.github.io
 

@@ -1,7 +1,7 @@
 #{.tabset .tabset-fade .tabset-pills}
 
 
-Desarrollo de los ejercicios del capitulo IV del libro _"Una introducción al aprendizaje estadistico con aplicaciones en R"_
+Desarrollo de los ejercicios del capitulo VII del libro _"Una introducción al aprendizaje estadistico con aplicaciones en R"_
 
 
 

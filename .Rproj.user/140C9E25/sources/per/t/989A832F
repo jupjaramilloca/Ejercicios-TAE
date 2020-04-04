@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585953433204.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "5|10|93|0|\n94|10|197|0|\n198|10|281|0|\n282|10|357|0|\n358|10|527|0|\n",
+    "hash" : "3526057933",
+    "id" : "989A832F",
+    "lastKnownWriteTime" : 1585967113,
+    "last_content_update" : 1585967114010,
+    "path" : "C:/Users/jupja/Desktop/UN/TAE/Ejercicios-TAE/IX.Rmd",
+    "project_path" : "IX.Rmd",
+    "properties" : {
+        "cursorPosition" : "3,44",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -441,18 +441,16 @@ points(data[preds == 0, ]$x1, data[preds == 0, ]$x2, col = (4 - 0), pch = (2 - 0
 <p><strong>(e) Ahora ajuste un modelo de regresión logística a los datos utilizando funciones no lineales de X1 y X2 como predictores (por ejemplo, X12, X1 × X2, log (X2), etc.).</strong></p>
 <pre class="r"><code>logitnl.fit &lt;- glm(y ~ poly(x1, 2) + poly(x2, 2) + I(x1 * x2), family = &quot;binomial&quot;)</code></pre>
 <pre><code>## Warning: glm.fit: algorithm did not converge</code></pre>
-<pre><code>## Warning: glm.fit: fitted probabilities numerically
-## 0 or 1 occurred</code></pre>
+<pre><code>## Warning: glm.fit: fitted probabilities numerically 0 or 1
+## occurred</code></pre>
 <pre class="r"><code>summary(logitnl.fit)</code></pre>
 <pre><code>## 
 ## Call:
 ## glm(formula = y ~ poly(x1, 2) + poly(x2, 2) + I(x1 * x2), family = &quot;binomial&quot;)
 ## 
 ## Deviance Residuals: 
-##        Min          1Q      Median          3Q  
-## -8.240e-04  -2.000e-08  -2.000e-08   2.000e-08  
-##        Max  
-##  1.163e-03  
+##        Min          1Q      Median          3Q         Max  
+## -8.240e-04  -2.000e-08  -2.000e-08   2.000e-08   1.163e-03  
 ## 
 ## Coefficients:
 ##              Estimate Std. Error z value Pr(&gt;|z|)
@@ -763,8 +761,8 @@ OJ.test &lt;- OJ[-train, ]</code></pre>
 summary(svm.linear)</code></pre>
 <pre><code>## 
 ## Call:
-## svm(formula = Purchase ~ ., data = OJ.train, 
-##     kernel = &quot;linear&quot;, cost = 0.01)
+## svm(formula = Purchase ~ ., data = OJ.train, kernel = &quot;linear&quot;, 
+##     cost = 0.01)
 ## 
 ## 
 ## Parameters:
@@ -851,8 +849,7 @@ table(OJ.test$Purchase, test.pred)</code></pre>
 summary(svm.radial)</code></pre>
 <pre><code>## 
 ## Call:
-## svm(formula = Purchase ~ ., data = OJ.train, 
-##     kernel = &quot;radial&quot;)
+## svm(formula = Purchase ~ ., data = OJ.train, kernel = &quot;radial&quot;)
 ## 
 ## 
 ## Parameters:
@@ -918,8 +915,8 @@ summary(tune.out)</code></pre>
 summary(svm.radial)</code></pre>
 <pre><code>## 
 ## Call:
-## svm(formula = Purchase ~ ., data = OJ.train, 
-##     kernel = &quot;radial&quot;, cost = tune.out$best.parameter$cost)
+## svm(formula = Purchase ~ ., data = OJ.train, kernel = &quot;radial&quot;, 
+##     cost = tune.out$best.parameter$cost)
 ## 
 ## 
 ## Parameters:
@@ -956,8 +953,8 @@ table(OJ.test$Purchase, test.pred)</code></pre>
 summary(svm.poly)</code></pre>
 <pre><code>## 
 ## Call:
-## svm(formula = Purchase ~ ., data = OJ.train, 
-##     kernel = &quot;polynomial&quot;, degree = 2)
+## svm(formula = Purchase ~ ., data = OJ.train, kernel = &quot;polynomial&quot;, 
+##     degree = 2)
 ## 
 ## 
 ## Parameters:
@@ -1025,8 +1022,8 @@ summary(tune.out)</code></pre>
 summary(svm.poly)</code></pre>
 <pre><code>## 
 ## Call:
-## svm(formula = Purchase ~ ., data = OJ.train, 
-##     kernel = &quot;polynomial&quot;, degree = 2, cost = tune.out$best.parameter$cost)
+## svm(formula = Purchase ~ ., data = OJ.train, kernel = &quot;polynomial&quot;, 
+##     degree = 2, cost = tune.out$best.parameter$cost)
 ## 
 ## 
 ## Parameters:

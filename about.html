@@ -326,27 +326,20 @@ $(document).ready(function () {
 <pre class="r"><code>library(ISLR)
 data(&quot;Weekly&quot;)
 summary(Weekly)</code></pre>
-<pre><code>##       Year           Lag1         
-##  Min.   :1990   Min.   :-18.1950  
-##  1st Qu.:1995   1st Qu.: -1.1540  
-##  Median :2000   Median :  0.2410  
-##  Mean   :2000   Mean   :  0.1506  
-##  3rd Qu.:2005   3rd Qu.:  1.4050  
-##  Max.   :2010   Max.   : 12.0260  
-##       Lag2               Lag3         
-##  Min.   :-18.1950   Min.   :-18.1950  
-##  1st Qu.: -1.1540   1st Qu.: -1.1580  
-##  Median :  0.2410   Median :  0.2410  
-##  Mean   :  0.1511   Mean   :  0.1472  
-##  3rd Qu.:  1.4090   3rd Qu.:  1.4090  
-##  Max.   : 12.0260   Max.   : 12.0260  
-##       Lag4               Lag5         
-##  Min.   :-18.1950   Min.   :-18.1950  
-##  1st Qu.: -1.1580   1st Qu.: -1.1660  
-##  Median :  0.2380   Median :  0.2340  
-##  Mean   :  0.1458   Mean   :  0.1399  
-##  3rd Qu.:  1.4090   3rd Qu.:  1.4050  
-##  Max.   : 12.0260   Max.   : 12.0260  
+<pre><code>##       Year           Lag1               Lag2         
+##  Min.   :1990   Min.   :-18.1950   Min.   :-18.1950  
+##  1st Qu.:1995   1st Qu.: -1.1540   1st Qu.: -1.1540  
+##  Median :2000   Median :  0.2410   Median :  0.2410  
+##  Mean   :2000   Mean   :  0.1506   Mean   :  0.1511  
+##  3rd Qu.:2005   3rd Qu.:  1.4050   3rd Qu.:  1.4090  
+##  Max.   :2010   Max.   : 12.0260   Max.   : 12.0260  
+##       Lag3               Lag4               Lag5         
+##  Min.   :-18.1950   Min.   :-18.1950   Min.   :-18.1950  
+##  1st Qu.: -1.1580   1st Qu.: -1.1580   1st Qu.: -1.1660  
+##  Median :  0.2410   Median :  0.2380   Median :  0.2340  
+##  Mean   :  0.1472   Mean   :  0.1458   Mean   :  0.1399  
+##  3rd Qu.:  1.4090   3rd Qu.:  1.4090   3rd Qu.:  1.4050  
+##  Max.   : 12.0260   Max.   : 12.0260   Max.   : 12.0260  
 ##      Volume            Today          Direction 
 ##  Min.   :0.08747   Min.   :-18.1950   Down:484  
 ##  1st Qu.:0.33202   1st Qu.: -1.1540   Up  :605  
@@ -364,33 +357,24 @@ summary(Weekly)</code></pre>
 <p>Matriz de correlaciones</p>
 </blockquote>
 <pre class="r"><code>cor(Weekly[,-9])</code></pre>
-<pre><code>##               Year         Lag1        Lag2
-## Year    1.00000000 -0.032289274 -0.03339001
-## Lag1   -0.03228927  1.000000000 -0.07485305
-## Lag2   -0.03339001 -0.074853051  1.00000000
-## Lag3   -0.03000649  0.058635682 -0.07572091
-## Lag4   -0.03112792 -0.071273876  0.05838153
-## Lag5   -0.03051910 -0.008183096 -0.07249948
-## Volume  0.84194162 -0.064951313 -0.08551314
-## Today  -0.03245989 -0.075031842  0.05916672
-##               Lag3         Lag4         Lag5
-## Year   -0.03000649 -0.031127923 -0.030519101
-## Lag1    0.05863568 -0.071273876 -0.008183096
-## Lag2   -0.07572091  0.058381535 -0.072499482
-## Lag3    1.00000000 -0.075395865  0.060657175
-## Lag4   -0.07539587  1.000000000 -0.075675027
-## Lag5    0.06065717 -0.075675027  1.000000000
-## Volume -0.06928771 -0.061074617 -0.058517414
-## Today  -0.07124364 -0.007825873  0.011012698
-##             Volume        Today
-## Year    0.84194162 -0.032459894
-## Lag1   -0.06495131 -0.075031842
-## Lag2   -0.08551314  0.059166717
-## Lag3   -0.06928771 -0.071243639
-## Lag4   -0.06107462 -0.007825873
-## Lag5   -0.05851741  0.011012698
-## Volume  1.00000000 -0.033077783
-## Today  -0.03307778  1.000000000</code></pre>
+<pre><code>##               Year         Lag1        Lag2        Lag3
+## Year    1.00000000 -0.032289274 -0.03339001 -0.03000649
+## Lag1   -0.03228927  1.000000000 -0.07485305  0.05863568
+## Lag2   -0.03339001 -0.074853051  1.00000000 -0.07572091
+## Lag3   -0.03000649  0.058635682 -0.07572091  1.00000000
+## Lag4   -0.03112792 -0.071273876  0.05838153 -0.07539587
+## Lag5   -0.03051910 -0.008183096 -0.07249948  0.06065717
+## Volume  0.84194162 -0.064951313 -0.08551314 -0.06928771
+## Today  -0.03245989 -0.075031842  0.05916672 -0.07124364
+##                Lag4         Lag5      Volume        Today
+## Year   -0.031127923 -0.030519101  0.84194162 -0.032459894
+## Lag1   -0.071273876 -0.008183096 -0.06495131 -0.075031842
+## Lag2    0.058381535 -0.072499482 -0.08551314  0.059166717
+## Lag3   -0.075395865  0.060657175 -0.06928771 -0.071243639
+## Lag4    1.000000000 -0.075675027 -0.06107462 -0.007825873
+## Lag5   -0.075675027  1.000000000 -0.05851741  0.011012698
+## Volume -0.061074617 -0.058517414  1.00000000 -0.033077783
+## Today  -0.007825873  0.011012698 -0.03307778  1.000000000</code></pre>
 <p><strong>(b) Utilice el conjunto de datos completo para realizar una regresion logística con <em>Direction</em> como la respuesta y la cinco varibles de retraso mas <em>Volume</em> como predictoras. Use la funcion summary para imprimir los resultados. ¿algunos de los predictores parece ser estadisticamente significativos? si es asi ¿cuales son estas variables? </strong></p>
 <blockquote>
 <p>Resumen Regresión logística</p>
@@ -407,25 +391,16 @@ summary(mod1)</code></pre>
 ## -1.6949  -1.2565   0.9913   1.0849   1.4579  
 ## 
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)
-## (Intercept)  0.26686    0.08593   3.106   0.0019
-## Lag1        -0.04127    0.02641  -1.563   0.1181
-## Lag2         0.05844    0.02686   2.175   0.0296
-## Lag3        -0.01606    0.02666  -0.602   0.5469
-## Lag4        -0.02779    0.02646  -1.050   0.2937
-## Lag5        -0.01447    0.02638  -0.549   0.5833
-## Volume      -0.02274    0.03690  -0.616   0.5377
-##               
-## (Intercept) **
-## Lag1          
-## Lag2        * 
-## Lag3          
-## Lag4          
-## Lag5          
-## Volume        
+##             Estimate Std. Error z value Pr(&gt;|z|)   
+## (Intercept)  0.26686    0.08593   3.106   0.0019 **
+## Lag1        -0.04127    0.02641  -1.563   0.1181   
+## Lag2         0.05844    0.02686   2.175   0.0296 * 
+## Lag3        -0.01606    0.02666  -0.602   0.5469   
+## Lag4        -0.02779    0.02646  -1.050   0.2937   
+## Lag5        -0.01447    0.02638  -0.549   0.5833   
+## Volume      -0.02274    0.03690  -0.616   0.5377   
 ## ---
-## Signif. codes:  
-## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -465,15 +440,11 @@ summary(mod2)</code></pre>
 ## -1.536  -1.264   1.021   1.091   1.368  
 ## 
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)
-## (Intercept)  0.20326    0.06428   3.162  0.00157
-## Lag2         0.05810    0.02870   2.024  0.04298
-##               
-## (Intercept) **
-## Lag2        * 
+##             Estimate Std. Error z value Pr(&gt;|z|)   
+## (Intercept)  0.20326    0.06428   3.162  0.00157 **
+## Lag2         0.05810    0.02870   2.024  0.04298 * 
 ## ---
-## Signif. codes:  
-## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -742,36 +713,36 @@ Auto$mpg01 &lt;- as.numeric(mpg01)</code></pre>
 <p>Correlaciones entre variables:</p>
 </blockquote>
 <pre class="r"><code>cor(Auto[,-9])</code></pre>
-<pre><code>##                     mpg  cylinders displacement
-## mpg           1.0000000 -0.7776175   -0.8051269
-## cylinders    -0.7776175  1.0000000    0.9508233
-## displacement -0.8051269  0.9508233    1.0000000
-## horsepower   -0.7784268  0.8429834    0.8972570
-## weight       -0.8322442  0.8975273    0.9329944
-## acceleration  0.4233285 -0.5046834   -0.5438005
-## year          0.5805410 -0.3456474   -0.3698552
-## origin        0.5652088 -0.5689316   -0.6145351
-## mpg01         0.8369392 -0.7591939   -0.7534766
-##              horsepower     weight acceleration
-## mpg          -0.7784268 -0.8322442    0.4233285
-## cylinders     0.8429834  0.8975273   -0.5046834
-## displacement  0.8972570  0.9329944   -0.5438005
-## horsepower    1.0000000  0.8645377   -0.6891955
-## weight        0.8645377  1.0000000   -0.4168392
-## acceleration -0.6891955 -0.4168392    1.0000000
-## year         -0.4163615 -0.3091199    0.2903161
-## origin       -0.4551715 -0.5850054    0.2127458
-## mpg01        -0.6670526 -0.7577566    0.3468215
-##                    year     origin      mpg01
-## mpg           0.5805410  0.5652088  0.8369392
-## cylinders    -0.3456474 -0.5689316 -0.7591939
-## displacement -0.3698552 -0.6145351 -0.7534766
-## horsepower   -0.4163615 -0.4551715 -0.6670526
-## weight       -0.3091199 -0.5850054 -0.7577566
-## acceleration  0.2903161  0.2127458  0.3468215
-## year          1.0000000  0.1815277  0.4299042
-## origin        0.1815277  1.0000000  0.5136984
-## mpg01         0.4299042  0.5136984  1.0000000</code></pre>
+<pre><code>##                     mpg  cylinders displacement horsepower
+## mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268
+## cylinders    -0.7776175  1.0000000    0.9508233  0.8429834
+## displacement -0.8051269  0.9508233    1.0000000  0.8972570
+## horsepower   -0.7784268  0.8429834    0.8972570  1.0000000
+## weight       -0.8322442  0.8975273    0.9329944  0.8645377
+## acceleration  0.4233285 -0.5046834   -0.5438005 -0.6891955
+## year          0.5805410 -0.3456474   -0.3698552 -0.4163615
+## origin        0.5652088 -0.5689316   -0.6145351 -0.4551715
+## mpg01         0.8369392 -0.7591939   -0.7534766 -0.6670526
+##                  weight acceleration       year     origin
+## mpg          -0.8322442    0.4233285  0.5805410  0.5652088
+## cylinders     0.8975273   -0.5046834 -0.3456474 -0.5689316
+## displacement  0.9329944   -0.5438005 -0.3698552 -0.6145351
+## horsepower    0.8645377   -0.6891955 -0.4163615 -0.4551715
+## weight        1.0000000   -0.4168392 -0.3091199 -0.5850054
+## acceleration -0.4168392    1.0000000  0.2903161  0.2127458
+## year         -0.3091199    0.2903161  1.0000000  0.1815277
+## origin       -0.5850054    0.2127458  0.1815277  1.0000000
+## mpg01        -0.7577566    0.3468215  0.4299042  0.5136984
+##                   mpg01
+## mpg           0.8369392
+## cylinders    -0.7591939
+## displacement -0.7534766
+## horsepower   -0.6670526
+## weight       -0.7577566
+## acceleration  0.3468215
+## year          0.4299042
+## origin        0.5136984
+## mpg01         1.0000000</code></pre>
 <blockquote>
 <p>Grafico de dispersion</p>
 </blockquote>
@@ -781,14 +752,6 @@ Auto$mpg01 &lt;- as.numeric(mpg01)</code></pre>
 <pre><code>## The following object is masked _by_ .GlobalEnv:
 ## 
 ##     mpg01</code></pre>
-<pre><code>## The following object is masked from package:ggplot2:
-## 
-##     mpg</code></pre>
-<pre><code>## The following objects are masked from Auto (pos = 7):
-## 
-##     acceleration, cylinders, displacement,
-##     horsepower, mpg, mpg01, name, origin,
-##     weight, year</code></pre>
 <pre class="r"><code>layout(rbind(c(1,1,1,2,2,2,3,3,3),c(4,4,4,5,5,5,6,6,6)))
 boxplot(cylinders~mpg01,data = Auto,main=&quot;Cilindros vs mpg01&quot;)
 boxplot(displacement ~mpg01,data = Auto,main=&quot;Desplazamiento vs mpg01&quot;)
@@ -889,23 +852,15 @@ summary(fit.glm)</code></pre>
 ## -2.4925  -0.1566   0.1188   0.3611   3.2309  
 ## 
 ## Coefficients:
-##               Estimate Std. Error z value
-## (Intercept)  11.730488   3.276787   3.580
-## cylinders    -0.136576   0.404783  -0.337
-## displacement -0.007845   0.009597  -0.817
-## horsepower   -0.033194   0.024676  -1.345
-## weight       -0.002468   0.001116  -2.212
-## acceleration  0.038322   0.159330   0.241
-##              Pr(&gt;|z|)    
-## (Intercept)  0.000344 ***
-## cylinders    0.735811    
-## displacement 0.413649    
-## horsepower   0.178556    
-## weight       0.026996 *  
-## acceleration 0.809930    
+##               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  11.730488   3.276787   3.580 0.000344 ***
+## cylinders    -0.136576   0.404783  -0.337 0.735811    
+## displacement -0.007845   0.009597  -0.817 0.413649    
+## horsepower   -0.033194   0.024676  -1.345 0.178556    
+## weight       -0.002468   0.001116  -2.212 0.026996 *  
+## acceleration  0.038322   0.159330   0.241 0.809930    
 ## ---
-## Signif. codes:  
-## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -926,18 +881,27 @@ table(pred.glm,data_test$mpg01)</code></pre>
 <pre><code>## [1] 0.1101695</code></pre>
 <p>Con los resultados anteriores podemos concluir que la tasa de error es del 11.86%.</p>
 <p><strong>(g) Realice KNN en los datos de entrenamiento, con varios valores de K, para predecir mpg01. Use solo las variables que parecían más asociadas con mpg01 en (b). ¿Qué errores de prueba obtienes? ¿Qué valor de K parece tener el mejor rendimiento en este conjunto de datos?</strong></p>
-<pre class="r"><code>require(ggplot2)
-require(factoextra)
-require(class)
-require(caret)
-set.seed(0511)
+<pre class="r"><code>require(ggplot2)</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggplot2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;Auto&#39;:
+## 
+##     mpg</code></pre>
+<pre class="r"><code>require(factoextra)</code></pre>
+<pre><code>## Loading required package: factoextra</code></pre>
+<pre><code>## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+<pre class="r"><code>require(class)
+require(caret)</code></pre>
+<pre><code>## Loading required package: caret</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre class="r"><code>set.seed(0511)
 ctrl &lt;- trainControl(method=&quot;repeatedcv&quot;,repeats = 3) 
 knnFit &lt;- train(mpg01 ~ cylinders+displacement+horsepower+weight+acceleration, data =data_train[,-c(1,7,8,9)], method = &quot;knn&quot;, trControl = ctrl, preProcess = c(&quot;center&quot;,&quot;scale&quot;), tuneLength = 20)</code></pre>
-<pre><code>## Warning in train.default(x, y, weights = w, ...):
-## You are trying to do regression and your outcome
-## only has two possible values Are you trying to
-## do classification? If so, use a 2 level factor as
-## your outcome column.</code></pre>
+<pre><code>## Warning in train.default(x, y, weights = w, ...): You are trying
+## to do regression and your outcome only has two possible values
+## Are you trying to do classification? If so, use a 2 level factor
+## as your outcome column.</code></pre>
 <pre class="r"><code>knnFit</code></pre>
 <pre><code>## k-Nearest Neighbors 
 ## 
@@ -971,8 +935,8 @@ knnFit &lt;- train(mpg01 ~ cylinders+displacement+horsepower+weight+acceleration
 ##   41  0.2700590  0.6981728  0.1451056
 ##   43  0.2704618  0.6973038  0.1476165
 ## 
-## RMSE was used to select the optimal model
-##  using the smallest value.
+## RMSE was used to select the optimal model using the
+##  smallest value.
 ## The final value used for the model was k = 31.</code></pre>
 <p>se obtuvo un k optimo de 7 procedemos con el modelo.</p>
 <pre class="r"><code>train.x &lt;- as.matrix(data_train[,-c(1,7,8,9)])
@@ -1086,37 +1050,22 @@ summary(fit.glm)</code></pre>
 ## -1.9848  -0.1797  -0.0017   0.0034   3.3317  
 ## 
 ## Coefficients:
-##               Estimate Std. Error z value
-## (Intercept) -30.570448   7.823691  -3.907
-## zn           -0.066360   0.039966  -1.660
-## indus        -0.043417   0.053660  -0.809
-## chas          0.812084   0.893650   0.909
-## nox          46.839608   8.845996   5.295
-## rm            0.280004   0.563847   0.497
-## age           0.022823   0.014516   1.572
-## dis           0.483227   0.236176   2.046
-## rad           0.693487   0.184343   3.762
-## tax          -0.009323   0.003294  -2.830
-## ptratio       0.178923   0.121506   1.473
-## black        -0.006888   0.005393  -1.277
-## lstat        -0.036400   0.057403  -0.634
-##             Pr(&gt;|z|)    
-## (Intercept) 9.33e-05 ***
-## zn          0.096830 .  
-## indus       0.418451    
-## chas        0.363495    
-## nox         1.19e-07 ***
-## rm          0.619474    
-## age         0.115881    
-## dis         0.040752 *  
-## rad         0.000169 ***
-## tax         0.004649 ** 
-## ptratio     0.140874    
-## black       0.201544    
-## lstat       0.526006    
+##               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -30.570448   7.823691  -3.907 9.33e-05 ***
+## zn           -0.066360   0.039966  -1.660 0.096830 .  
+## indus        -0.043417   0.053660  -0.809 0.418451    
+## chas          0.812084   0.893650   0.909 0.363495    
+## nox          46.839608   8.845996   5.295 1.19e-07 ***
+## rm            0.280004   0.563847   0.497 0.619474    
+## age           0.022823   0.014516   1.572 0.115881    
+## dis           0.483227   0.236176   2.046 0.040752 *  
+## rad           0.693487   0.184343   3.762 0.000169 ***
+## tax          -0.009323   0.003294  -2.830 0.004649 ** 
+## ptratio       0.178923   0.121506   1.473 0.140874    
+## black        -0.006888   0.005393  -1.277 0.201544    
+## lstat        -0.036400   0.057403  -0.634 0.526006    
 ## ---
-## Signif. codes:  
-## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -1149,29 +1098,18 @@ summary(fit.glm1)</code></pre>
 ## -1.96371  -0.22572  -0.01948   0.00597   2.91220  
 ## 
 ## Coefficients:
-##               Estimate Std. Error z value
-## (Intercept) -23.472808   5.213152  -4.503
-## indus        -0.052668   0.054397  -0.968
-## nox          45.719887   8.902831   5.135
-## age           0.024557   0.012887   1.906
-## dis           0.265804   0.187558   1.417
-## rad           0.620643   0.146227   4.244
-## tax          -0.009174   0.003001  -3.057
-## black        -0.007900   0.005400  -1.463
-## lstat        -0.042885   0.040838  -1.050
-##             Pr(&gt;|z|)    
-## (Intercept) 6.71e-06 ***
-## indus        0.33293    
-## nox         2.81e-07 ***
-## age          0.05671 .  
-## dis          0.15643    
-## rad         2.19e-05 ***
-## tax          0.00223 ** 
-## black        0.14348    
-## lstat        0.29366    
+##               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -23.472808   5.213152  -4.503 6.71e-06 ***
+## indus        -0.052668   0.054397  -0.968  0.33293    
+## nox          45.719887   8.902831   5.135 2.81e-07 ***
+## age           0.024557   0.012887   1.906  0.05671 .  
+## dis           0.265804   0.187558   1.417  0.15643    
+## rad           0.620643   0.146227   4.244 2.19e-05 ***
+## tax          -0.009174   0.003001  -3.057  0.00223 ** 
+## black        -0.007900   0.005400  -1.463  0.14348    
+## lstat        -0.042885   0.040838  -1.050  0.29366    
 ## ---
-## Signif. codes:  
-## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
@@ -1205,15 +1143,12 @@ fit.lda</code></pre>
 ## 0.5056497 0.4943503 
 ## 
 ## Group means:
-##          zn     indus       chas       nox
-## 0 22.460894  7.143631 0.04469274 0.4708587
-## 1  1.268571 15.137771 0.09142857 0.6337086
-##         rm      age      dis       rad      tax
-## 0 6.399620 50.44469 5.153022  4.201117 311.8156
-## 1 6.170234 85.79200 2.523521 14.777143 506.8000
-##    ptratio    black     lstat
-## 0 17.92514 388.2874  9.549944
-## 1 18.96800 319.7955 15.626343
+##          zn     indus       chas       nox       rm      age
+## 0 22.460894  7.143631 0.04469274 0.4708587 6.399620 50.44469
+## 1  1.268571 15.137771 0.09142857 0.6337086 6.170234 85.79200
+##        dis       rad      tax  ptratio    black     lstat
+## 0 5.153022  4.201117 311.8156 17.92514 388.2874  9.549944
+## 1 2.523521 14.777143 506.8000 18.96800 319.7955 15.626343
 ## 
 ## Coefficients of linear discriminants:
 ##                   LD1
@@ -1250,12 +1185,12 @@ fit.lda1</code></pre>
 ## 0.5056497 0.4943503 
 ## 
 ## Group means:
-##       indus       nox      age      dis       rad
-## 0  7.143631 0.4708587 50.44469 5.153022  4.201117
-## 1 15.137771 0.6337086 85.79200 2.523521 14.777143
-##        tax    black     lstat
-## 0 311.8156 388.2874  9.549944
-## 1 506.8000 319.7955 15.626343
+##       indus       nox      age      dis       rad      tax
+## 0  7.143631 0.4708587 50.44469 5.153022  4.201117 311.8156
+## 1 15.137771 0.6337086 85.79200 2.523521 14.777143 506.8000
+##      black     lstat
+## 0 388.2874  9.549944
+## 1 319.7955 15.626343
 ## 
 ## Coefficients of linear discriminants:
 ##                 LD1
@@ -1317,8 +1252,8 @@ knnFit</code></pre>
 ##   41  0.7907672  0.5801909
 ##   43  0.7935714  0.5857363
 ## 
-## Accuracy was used to select the optimal
-##  model using the largest value.
+## Accuracy was used to select the optimal model using the
+##  largest value.
 ## The final value used for the model was k = 5.</code></pre>
 <p>Un K optimo para este metodo de clasificación es 5.</p>
 <pre class="r"><code>train.x &lt;- as.matrix(data_train[,-c(1,14)])

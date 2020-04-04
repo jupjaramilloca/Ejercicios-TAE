@@ -1,0 +1,26 @@
+name: "my-website"
+output_dir: "."
+navbar:
+  title: "Ejercicios TAE-2019-2"
+  left:
+    - text: "Ensayo"
+      href: index.html
+    - text: "Capitulo IV"
+      href: about.html
+    - text: "Capitulo VIII"
+      href: VIII.html
+    - text: "Capitulo IX"
+      href: IX.html
+
+      
+output:
+  html_document:
+    theme: cerulean
+    highlight: textmate
+    code_folding: hide
+
+
+right:
+    - icon: fa-github
+      href: https://github.com/jupjaramilloca/Ejercicios-TAE.github.io
+

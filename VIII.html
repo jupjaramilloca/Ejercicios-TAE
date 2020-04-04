@@ -388,9 +388,8 @@ mean((pred - carseats.test$Sales)^2)</code></pre>
 ## rpart(formula = Sales ~ ., data = carseats.train)
 ## 
 ## Variables actually used in tree construction:
-## [1] Advertising Age         CompPrice  
-## [4] Income      Price       ShelveLoc  
-## [7] US         
+## [1] Advertising Age         CompPrice   Income      Price      
+## [6] ShelveLoc   US         
 ## 
 ## Root node error: 2084.7/260 = 8.0181
 ## 
@@ -487,9 +486,8 @@ summary(tree.oj)</code></pre>
 ## Classification tree:
 ## tree(formula = Purchase ~ ., data = OJ.train)
 ## Variables actually used in tree construction:
-## [1] &quot;LoyalCH&quot;        &quot;SalePriceMM&quot;   
-## [3] &quot;SpecialCH&quot;      &quot;WeekofPurchase&quot;
-## [5] &quot;ListPriceDiff&quot;  &quot;PctDiscMM&quot;     
+## [1] &quot;LoyalCH&quot;        &quot;SalePriceMM&quot;    &quot;SpecialCH&quot;     
+## [4] &quot;WeekofPurchase&quot; &quot;ListPriceDiff&quot;  &quot;PctDiscMM&quot;     
 ## Number of terminal nodes:  10 
 ## Residual mean deviance:  0.7071 = 558.6 / 790 
 ## Misclassification error rate: 0.1525 = 122 / 800</code></pre>
@@ -566,8 +564,7 @@ cv.oj</code></pre>
 ## [1] 142 144 151 157 305
 ## 
 ## $k
-## [1]       -Inf   0.000000   4.333333   6.250000
-## [5] 145.000000
+## [1]       -Inf   0.000000   4.333333   6.250000 145.000000
 ## 
 ## $method
 ## [1] &quot;misclass&quot;
@@ -596,8 +593,7 @@ text(prune.oj,pretty = 0)</code></pre>
 ## Classification tree:
 ## snip.tree(tree = tree.oj, nodes = c(10L, 3L))
 ## Variables actually used in tree construction:
-## [1] &quot;LoyalCH&quot;        &quot;SalePriceMM&quot;   
-## [3] &quot;WeekofPurchase&quot;
+## [1] &quot;LoyalCH&quot;        &quot;SalePriceMM&quot;    &quot;WeekofPurchase&quot;
 ## Number of terminal nodes:  6 
 ## Residual mean deviance:  0.8552 = 679 / 794 
 ## Misclassification error rate: 0.1688 = 135 / 800</code></pre>
@@ -606,9 +602,8 @@ text(prune.oj,pretty = 0)</code></pre>
 ## Classification tree:
 ## tree(formula = Purchase ~ ., data = OJ.train)
 ## Variables actually used in tree construction:
-## [1] &quot;LoyalCH&quot;        &quot;SalePriceMM&quot;   
-## [3] &quot;SpecialCH&quot;      &quot;WeekofPurchase&quot;
-## [5] &quot;ListPriceDiff&quot;  &quot;PctDiscMM&quot;     
+## [1] &quot;LoyalCH&quot;        &quot;SalePriceMM&quot;    &quot;SpecialCH&quot;     
+## [4] &quot;WeekofPurchase&quot; &quot;ListPriceDiff&quot;  &quot;PctDiscMM&quot;     
 ## Number of terminal nodes:  10 
 ## Residual mean deviance:  0.7071 = 558.6 / 790 
 ## Misclassification error rate: 0.1525 = 122 / 800</code></pre>
@@ -771,12 +766,10 @@ Caravan.test &lt;- Caravan[-train,]</code></pre>
 library(gbm)
 boost.caravan &lt;- gbm(Purchase~.,data = Caravan.train,distribution = &quot;gaussian&quot;,
                      n.trees = 1000,shrinkage = 0.01)</code></pre>
-<pre><code>## Warning in gbm.fit(x = x, y = y, offset = offset,
-## distribution = distribution, : variable 50:
-## PVRAAUT has no variation.</code></pre>
-<pre><code>## Warning in gbm.fit(x = x, y = y, offset = offset,
-## distribution = distribution, : variable 71:
-## AVRAAUT has no variation.</code></pre>
+<pre><code>## Warning in gbm.fit(x = x, y = y, offset = offset, distribution =
+## distribution, : variable 50: PVRAAUT has no variation.</code></pre>
+<pre><code>## Warning in gbm.fit(x = x, y = y, offset = offset, distribution =
+## distribution, : variable 71: AVRAAUT has no variation.</code></pre>
 <pre class="r"><code>summary(boost.caravan)</code></pre>
 <p><img src="VIII_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 <pre><code>##               var     rel.inf
@@ -903,12 +896,12 @@ matrixx</code></pre>
 ## </code></pre>
 <p>Observamos que la personas que en realidad harán una compra la predicción tiene un precisión del 4.15%</p>
 <pre class="r"><code>logit.caravan &lt;- glm(Purchase ~ ., data = Caravan.train, family = &quot;binomial&quot;)</code></pre>
-<pre><code>## Warning: glm.fit: fitted probabilities numerically
-## 0 or 1 occurred</code></pre>
+<pre><code>## Warning: glm.fit: fitted probabilities numerically 0 or 1
+## occurred</code></pre>
 <pre class="r"><code>probs.test2 &lt;- predict(logit.caravan,Caravan.test,type = &quot;response&quot;)</code></pre>
-<pre><code>## Warning in predict.lm(object, newdata, se.fit,
-## scale = 1, type = if (type == : prediction from a
-## rank-deficient fit may be misleading</code></pre>
+<pre><code>## Warning in predict.lm(object, newdata, se.fit, scale = 1, type
+## = if (type == : prediction from a rank-deficient fit may be
+## misleading</code></pre>
 <pre class="r"><code>pred.test2 &lt;- ifelse(probs.test &gt; 0.2, 1, 0)
 matriz &lt;- confusionMatrix(as.factor(pred.test2), as.factor(Caravan.test$Purchase))
 matriz</code></pre>
@@ -974,8 +967,8 @@ table(bpredic,Morfo.test$peso01)</code></pre>
 <p>regresión logistica</p>
 </blockquote>
 <pre class="r"><code>logit.mor &lt;- glm(peso01~.,data = Morfo.train,family = &quot;binomial&quot;)</code></pre>
-<pre><code>## Warning: glm.fit: fitted probabilities numerically
-## 0 or 1 occurred</code></pre>
+<pre><code>## Warning: glm.fit: fitted probabilities numerically 0 or 1
+## occurred</code></pre>
 <pre class="r"><code>logit.probs &lt;- predict(logit.mor,newdata = Morfo.test,type = &quot;response&quot;)
 logit.pred &lt;- ifelse(logit.probs &gt;0.5 ,1,0)
 table(logit.pred,Morfo.test$peso01)</code></pre>
@@ -990,9 +983,8 @@ table(logit.pred,Morfo.test$peso01)</code></pre>
 <pre class="r"><code>library(randomForest)
 
 forest.morfo &lt;- randomForest(peso01~.,data = Morfo.test,mtry=5)</code></pre>
-<pre><code>## Warning in randomForest.default(m, y, ...): The
-## response has five or fewer unique values. Are you
-## sure you want to do regression?</code></pre>
+<pre><code>## Warning in randomForest.default(m, y, ...): The response has five
+## or fewer unique values. Are you sure you want to do regression?</code></pre>
 <pre class="r"><code>for.probs &lt;- predict(forest.morfo,newdata = Morfo.test)
 for.predic &lt;- ifelse(for.probs &gt;0.5,1,0)
 matrixx &lt;- confusionMatrix(as.factor(for.predic),as.factor(Morfo.test$peso01))
