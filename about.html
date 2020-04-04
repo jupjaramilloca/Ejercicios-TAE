@@ -752,6 +752,17 @@ Auto$mpg01 &lt;- as.numeric(mpg01)</code></pre>
 <pre><code>## The following object is masked _by_ .GlobalEnv:
 ## 
 ##     mpg01</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 4):
+## 
+##     acceleration, cylinders, displacement, horsepower,
+##     mpg, mpg01, name, origin, weight, year</code></pre>
+<pre><code>## The following object is masked from package:ggplot2:
+## 
+##     mpg</code></pre>
+<pre><code>## The following objects are masked from Auto (pos = 9):
+## 
+##     acceleration, cylinders, displacement, horsepower,
+##     mpg, mpg01, name, origin, weight, year</code></pre>
 <pre class="r"><code>layout(rbind(c(1,1,1,2,2,2,3,3,3),c(4,4,4,5,5,5,6,6,6)))
 boxplot(cylinders~mpg01,data = Auto,main=&quot;Cilindros vs mpg01&quot;)
 boxplot(displacement ~mpg01,data = Auto,main=&quot;Desplazamiento vs mpg01&quot;)
@@ -881,21 +892,11 @@ table(pred.glm,data_test$mpg01)</code></pre>
 <pre><code>## [1] 0.1101695</code></pre>
 <p>Con los resultados anteriores podemos concluir que la tasa de error es del 11.86%.</p>
 <p><strong>(g) Realice KNN en los datos de entrenamiento, con varios valores de K, para predecir mpg01. Use solo las variables que parecían más asociadas con mpg01 en (b). ¿Qué errores de prueba obtienes? ¿Qué valor de K parece tener el mejor rendimiento en este conjunto de datos?</strong></p>
-<pre class="r"><code>require(ggplot2)</code></pre>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## 
-## Attaching package: &#39;ggplot2&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;Auto&#39;:
-## 
-##     mpg</code></pre>
-<pre class="r"><code>require(factoextra)</code></pre>
-<pre><code>## Loading required package: factoextra</code></pre>
-<pre><code>## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
-<pre class="r"><code>require(class)
-require(caret)</code></pre>
-<pre><code>## Loading required package: caret</code></pre>
-<pre><code>## Loading required package: lattice</code></pre>
-<pre class="r"><code>set.seed(0511)
+<pre class="r"><code>require(ggplot2)
+require(factoextra)
+require(class)
+require(caret)
+set.seed(0511)
 ctrl &lt;- trainControl(method=&quot;repeatedcv&quot;,repeats = 3) 
 knnFit &lt;- train(mpg01 ~ cylinders+displacement+horsepower+weight+acceleration, data =data_train[,-c(1,7,8,9)], method = &quot;knn&quot;, trControl = ctrl, preProcess = c(&quot;center&quot;,&quot;scale&quot;), tuneLength = 20)</code></pre>
 <pre><code>## Warning in train.default(x, y, weights = w, ...): You are trying

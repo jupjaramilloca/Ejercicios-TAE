@@ -313,7 +313,7 @@ $(document).ready(function () {
 
 <div id="section" class="section level1 tabset tabset-fade tabset-pills">
 <h1></h1>
-<p>Desarrollo de los ejercicios del capitulo IV del libro <em>“Una introducción al aprendizaje estadistico con aplicaciones en R”</em></p>
+<p>Desarrollo de los ejercicios del capitulo VII del libro <em>“Una introducción al aprendizaje estadistico con aplicaciones en R”</em></p>
 <div id="punto-7" class="section level2">
 <h2>Punto 7</h2>
 <ul>
@@ -694,14 +694,14 @@ ggplot(data = mse_graph2, aes(x = Lambdas, y = MSE)) +
   geom_point() </code></pre>
 <p><img src="VIII_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <pre class="r"><code>min(mse2)</code></pre>
-<pre><code>## [1] 0.2461295</code></pre>
+<pre><code>## [1] 0.008045964</code></pre>
 <pre class="r"><code>lambdas[which.min(mse2)]</code></pre>
-<pre><code>## [1] 0.131</code></pre>
+<pre><code>## [1] 0.221</code></pre>
 <p><strong>(e) Compare la prueba MSE de refuerzo con la prueba MSE que resulta de aplicar dos de los enfoques de regresión vistos en los Capítulos 3 y 6.</strong></p>
 <pre class="r"><code>mod8.10 &lt;- lm(Salary~.,data = Hitters.train)
 pred8.10 &lt;- predict(mod8.10,Hitters.test)
 mean((pred8.10-Hitters.test$Salary)^2)</code></pre>
-<pre><code>## [1] 0.4917959</code></pre>
+<pre><code>## [1] 0.01496996</code></pre>
 <pre class="r"><code>library(pls)</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;pls&#39;</code></pre>
@@ -716,38 +716,38 @@ validationplot(pcr.fit ,val.type=&quot;MSEP&quot;)</code></pre>
 <p><img src="VIII_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <pre class="r"><code>pcr.pred=predict (pcr.fit ,Hitters.test,ncomp =1)
 mean((pcr.pred -Hitters.test$Salary)^2)</code></pre>
-<pre><code>## [1] 0.4661183</code></pre>
+<pre><code>## [1] 0.01451209</code></pre>
 <p>observamos que el MSE de la regresion lineal y de las componentes principales es mayor el MSE por el metodo Boosting</p>
 <p><strong>(f) ¿Qué variables parecen ser los predictores más importantes en el modelo impulsado?</strong></p>
 <pre class="r"><code>boost.hitters &lt;- gbm(Salary ~ ., data = Hitters.train, distribution = &quot;gaussian&quot;, n.trees = 1000, shrinkage = lambdas[which.min(mse2)])
 summary(boost.hitters)</code></pre>
 <p><img src="VIII_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <pre><code>##                 var    rel.inf
-## CAtBat       CAtBat 22.1891184
-## PutOuts     PutOuts  8.1156374
-## CRBI           CRBI  7.7992242
-## CWalks       CWalks  7.2267797
-## Walks         Walks  6.9703139
-## Assists     Assists  6.0854321
-## CHmRun       CHmRun  5.2576243
-## Hits           Hits  5.2422222
-## Years         Years  4.8380328
-## CRuns         CRuns  4.6471959
-## RBI             RBI  4.6430518
-## AtBat         AtBat  3.5618987
-## HmRun         HmRun  3.5243625
-## Errors       Errors  3.0632824
-## CHits         CHits  2.7467221
-## Runs           Runs  2.7155911
-## Division   Division  0.6010006
-## NewLeague NewLeague  0.5563958
-## League       League  0.2161140</code></pre>
+## CAtBat       CAtBat 20.9357894
+## CRBI           CRBI  8.5139779
+## Walks         Walks  7.8537980
+## PutOuts     PutOuts  7.8489445
+## Assists     Assists  6.2424828
+## CHmRun       CHmRun  5.5029640
+## CHits         CHits  5.4563379
+## RBI             RBI  5.2328390
+## Years         Years  4.6083614
+## HmRun         HmRun  4.3324602
+## CWalks       CWalks  3.9809018
+## Hits           Hits  3.9546612
+## Runs           Runs  3.9279665
+## CRuns         CRuns  3.9114678
+## AtBat         AtBat  3.6762367
+## Errors       Errors  2.8299005
+## NewLeague NewLeague  0.5801140
+## Division   Division  0.4064132
+## League       League  0.2043833</code></pre>
 <p>En la tabla se observa que la variable mas importante es CatBat.</p>
 <p><strong>(g) Ahora aplique el embolsado al conjunto de entrenamiento. ¿Cuál es el conjunto de prueba MSE para este enfoque?</strong></p>
 <pre class="r"><code>bag.hitters &lt;- randomForest(Salary ~ ., data = Hitters.train, mtry = 19)
 yhat.bag &lt;- predict(bag.hitters, newdata = Hitters.test)
 mean((yhat.bag - Hitters.test$Salary)^2)</code></pre>
-<pre><code>## [1] 0.228878</code></pre>
+<pre><code>## [1] 0.007236243</code></pre>
 <p>El MSE es de 0.2339 es mucho mejor que los otros metodos por el momento. ## Punto 11</p>
 <ul>
 <li><strong>Esta pregunta utiliza el conjunto de datos de Caravan.</strong></li>
